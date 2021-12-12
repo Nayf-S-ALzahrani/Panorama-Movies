@@ -1,0 +1,6 @@
+package com.example.myproject.models
+
+data class Star(
+    val id: String,
+    val name: String
+)
