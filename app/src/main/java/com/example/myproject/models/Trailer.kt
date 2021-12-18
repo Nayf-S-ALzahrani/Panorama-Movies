@@ -9,7 +9,7 @@ data class Trailer(
     val title: String,
     val type: String,
     val videoId: String,
-    @SerializedName("trailer")
-    val videoUrl: String,
+    @SerializedName("videoUrl")
+    val trailer: String,
     val year: String
 )
