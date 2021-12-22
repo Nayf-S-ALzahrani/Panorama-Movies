@@ -3,11 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.10885416666666667" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.31666666666666665" />
         <entry key="app/src/main/res/drawable/style.xml" value="0.10648148148148148" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
         <entry key="app/src/main/res/layout/movies_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/movies_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/oscar_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/oscar_movies_fragment.xml" value="0.308441348487975" />
+        <entry key="app/src/main/res/layout/theater_list_item.xml" value="0.23897058823529413" />
+        <entry key="app/src/main/res/layout/theater_movies_fragment.xml" value="0.23985239852398524" />
+        <entry key="app/src/main/res/layout/top_100_movies_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/top_100_movies_list_item.xml" value="0.350364516645174" />
+        <entry key="app/src/main/res/layout/top_250_movies_fragment.xml" value="0.10240510751706786" />
+        <entry key="app/src/main/res/layout/top_250_movies_list_item.xml" value="0.2743114905662619" />
       </map>
     </option>
   </component>

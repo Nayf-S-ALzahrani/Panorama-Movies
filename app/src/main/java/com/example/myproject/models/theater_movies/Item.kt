@@ -1,4 +1,5 @@
-package com.example.myproject.models
+package com.example.myproject.models.theater_movies
+
 
 data class Item(
     val contentRating: String,

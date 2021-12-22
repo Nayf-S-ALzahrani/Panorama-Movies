@@ -1,7 +1,8 @@
 package com.example.myproject.api
 
-import com.example.myproject.models.TheatersMovies
-import com.example.myproject.models.Trailer
+import com.example.myproject.models.theater_movies.TheatersMovies
+import com.example.myproject.models.theater_movies.Trailer
+import com.example.myproject.models.top250movies.Top250Movies
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -14,6 +15,9 @@ interface ImdbApi {
 
     @GET("/en/API/YouTubeTrailer/k_09ko5ajr")
     suspend fun getTrailer(@Path("Id") id: String):Response<Trailer>
+
+    @GET("/en/API/Top250Movies/k_09ko5ajr")
+    suspend fun getTop250Movies():Response<Top250Movies>
 
 //    @GET("/en/API/SearchMovie/k_95e4lc0l/{expression}")
 //    fun searchMovie(@Path("expression") query: String): Call<SearchMovieResponse>

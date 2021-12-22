@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    android:fitsSystemWindows="true"
+    android:gravity="center">
+
+    <!--    <ImageView-->
+    <!--        android:id="@+id/backgroundImageView"-->
+    <!--        android:layout_width="match_parent"-->
+    <!--        android:layout_height="match_parent"-->
+    <!--        android:angle="90"-->
+    <!--        android:foreground="@drawable/style"-->
+    <!--        android:requiresFadingEdge="vertical"-->
+    <!--        android:scaleType="centerCrop"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toTopOf="parent"-->
+    <!--        app:layout_constraintVertical_bias="0.0"-->
+    <!--        app:srcCompat="@drawable/ic_launcher_foreground" />-->
+    <com.jackandphantom.carouselrecyclerview.view.ReflectionViewContainer
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:reflect_gap="0.5dp"
+        app:reflect_relativeDepth="0.4">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/poster_iv"
+            android:layout_width="230dp"
+            android:layout_height="280dp"
+            android:scaleType="fitXY"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </com.jackandphantom.carouselrecyclerview.view.ReflectionViewContainer>
+    <!--    <RatingBar-->
+    <!--        android:id="@+id/ratingBar"-->
+    <!--        style="@style/Widget.AppCompat.RatingBar.Small"-->
+    <!--        android:layout_width="160dp"-->
+    <!--        android:layout_height="19dp"-->
+    <!--        android:layout_marginTop="8dp"-->
+    <!--        android:backgroundTint="#FFD600"-->
+    <!--        android:numStars="10"-->
+    <!--        android:progressTint="#FFAB00"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.498"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/year_tv"-->
+    <!--        app:layout_constraintBottom_toBottomOf="@id/view2"-->
+
+    <!--        tools:ignore="MissingConstraints" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/title_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="32dp"-->
+    <!--        android:fontFamily="sans-serif"-->
+    <!--        android:gravity="center|top"-->
+    <!--        android:textColor="#272F4B"-->
+    <!--        android:textSize="30sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.48"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/poster_iv"-->
+    <!--        tools:text="title" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/year_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="48dp"-->
+    <!--        android:fontFamily="sans-serif-thin"-->
+    <!--        android:gravity="center|top"-->
+    <!--        android:textColor="#272F4B"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.067"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/title_tv"-->
+    <!--        tools:ignore="MissingConstraints"-->
+    <!--        tools:text="year" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/genres_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="48dp"-->
+    <!--        android:fontFamily="sans-serif-thin"-->
+    <!--        android:gravity="center|top"-->
+    <!--        android:textColor="#272F4B"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.237"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/title_tv"-->
+    <!--        tools:ignore="MissingConstraints"-->
+    <!--        tools:text="genres" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/runtimeStr_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="48dp"-->
+    <!--        android:fontFamily="sans-serif-thin"-->
+    <!--        android:gravity="center|top"-->
+    <!--        android:textColor="#272F4B"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.92"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/title_tv"-->
+    <!--        tools:ignore="MissingConstraints"-->
+    <!--        tools:text="Runtime Starr" />-->
+
+    <!--    <TextView-->
+    <!--        android:id="@+id/releaseState_tv"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="wrap_content"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        android:fontFamily="sans-serif-thin"-->
+    <!--        android:gravity="center|top"-->
+    <!--        android:textColor="#272F4B"-->
+    <!--        android:textSize="20sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.498"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@id/title_tv"-->
+    <!--        tools:ignore="MissingConstraints"-->
+    <!--        tools:text="Release State" />-->
+
+    <!--    <View-->
+    <!--        android:id="@+id/view2"-->
+    <!--        android:layout_width="170dp"-->
+    <!--        android:layout_height="0.5dp"-->
+    <!--        android:layout_marginTop="12dp"-->
+    <!--        android:backgroundTint="#9F000207"-->
+    <!--        android:background="#9F000207"-->
+    <!--        app:layout_constraintBottom_toBottomOf="parent"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.497"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/ratingBar"-->
+    <!--        app:layout_constraintVertical_bias="0.0" />-->
+
+</androidx.constraintlayout.widget.ConstraintLayout>
