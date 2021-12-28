@@ -20,8 +20,8 @@ class Top250ListViewModel @Inject constructor(
     private val getTop250MoviesUseCase: GetTop250MoviesUseCase
 ) : ViewModel() {
 
-    private val _state = MutableLiveData<List<ItemTop250>>()
-    val state: LiveData<List<ItemTop250>> = _state
+    private val _state = MutableLiveData<Top250Value>()
+    val state: LiveData<Top250Value> = _state
 
     init {
         getTop250()
@@ -31,18 +31,19 @@ class Top250ListViewModel @Inject constructor(
         getTop250MoviesUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    _state.value = result.data ?: emptyList()
-//                    _state.value = Top250ListState(top250 = result.data ?: emptyList())
-                    Log.d(TAG, "getTop250: ${result.data}")
+
+                    _state.value = Top250Value(top250 = result.data ?: emptyList())
+//                    _state.value = result.data ?: emptyList<>()
+//                    Log.d(TAG, "getTop250: ${result.data}")
 
                 }
                 is Resource.Error -> {
-//                    _state.value = Top250ListState(
-//                        error = result.message ?: "An unexpected error occurred"
-//                    )
+//                    _state.value = result.data ?: "An unexpected error occurred"
+                    _state.value =
+                        Top250Value(error = result.message ?: "An unexpected error occurred")
                 }
                 is Resource.Loading -> {
-//                    _state.value = Top250ListState(isLoading = true)
+                    _state.value = Top250Value(isLoading = true)
                 }
             }
         }.launchIn(viewModelScope)

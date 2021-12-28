@@ -63,8 +63,16 @@ class Top250MoviesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         top250MoviesViewModel.state.observe(viewLifecycleOwner) {
-            binding.top250MoviesRv.adapter = Top250MoviesAdapter(it)
-            movies = it
+            if (it.top250.isNotEmpty()) {
+                binding.top250MoviesRv.adapter = Top250MoviesAdapter(it.top250)
+                movies = it.top250
+            } else if (it.isLoading) {
+                //show progress bar
+            } else {
+                //toast error message
+            }
+
+
             movies?.let {
                 binding.movieTitle.text = it[0].title
                 Log.d(TAG, "onItemSelected: work")

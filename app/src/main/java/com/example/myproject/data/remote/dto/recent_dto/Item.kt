@@ -1,6 +1,6 @@
-package com.example.myproject.data.remote.dto.theater_dto
+package com.example.myproject.data.remote.dto.recent_dto
 
-import com.example.myproject.domain.model.theater_movies.ItemTheater
+import com.example.myproject.domain.model.recent_movies.ItemRecent
 
 data class Item(
     val contentRating: String,
@@ -24,8 +24,8 @@ data class Item(
     val year: String
 )
 
-fun Item.toItemTheater(): ItemTheater {
-    return ItemTheater(
+fun Item.toItemRecent(): ItemRecent {
+    return ItemRecent(
     contentRating = contentRating,
     directors =  directors,
     genreList = genreList,
