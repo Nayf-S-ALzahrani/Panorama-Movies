@@ -29,10 +29,6 @@ class Top250MoviesFragment : Fragment() {
     val state by lazy { top250MoviesViewModel.state.value }
     private var movies: List<ItemTop250>? = null
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -48,36 +44,42 @@ class Top250MoviesFragment : Fragment() {
         binding.top250MoviesRv.setInfinite(true)
         binding.top250MoviesRv.setIntervalRatio(0.4f)
         binding.top250MoviesRv.setAlpha(false)
+
         binding.top250MoviesRv.setItemSelectListener(object : CarouselLayoutManager.OnSelected {
             override fun onItemSelected(position: Int) {
                 movies?.let {
                     binding.movieTitle.text = it[position].title
+                    binding.movieTitle2.text = it[position].title
                     Log.d(TAG, "onItemSelected: work")
                 }
             }
         })
-
         binding.top250MoviesRv.layoutManager = binding.top250MoviesRv.getCarouselLayoutManager()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         top250MoviesViewModel.state.observe(viewLifecycleOwner) {
-            if (it.top250.isNotEmpty()) {
-                binding.top250MoviesRv.adapter = Top250MoviesAdapter(it.top250)
-                movies = it.top250
-            } else if (it.isLoading) {
-                //show progress bar
-            } else {
-                //toast error message
+            when {
+                it.top250.isNotEmpty() -> {
+                    binding.top250MoviesRv.adapter = Top250MoviesAdapter(it.top250)
+                    movies = it.top250
+                    Log.d(TAG, "The top 250 movies list: ${state!!.top250}")
+                }
+                it.isLoading -> {
+                    //show progress bar
+                    Log.d(TAG, "Loading: ${state?.isLoading}")
+                }
+                else -> {
+                    //toast error message
+                    Log.d(TAG, "Error:${state?.error} ")
+                }
             }
-
-
             movies?.let {
                 binding.movieTitle.text = it[0].title
+                binding.movieTitle2.text = it[0].title
                 Log.d(TAG, "onItemSelected: work")
             }
-            Log.d(TAG, "onViewCreated: $it")
         }
     }
 
@@ -89,6 +91,16 @@ class Top250MoviesFragment : Fragment() {
             this.movie = movie
             binding.posterIv.load(movie.image)
             binding.rate.text = movie.rating
+
+            if (binding.rate.text.isNotBlank()) {
+                binding.rate.text = movie.rating
+                Log.d(TAG, "bind: ${movie.rating}")
+                Log.d(TAG, "bind: ${movie.title}")
+            } else {
+                binding.rating.visibility = View.GONE
+                binding.rate.visibility = View.GONE
+                binding.imageView.visibility = View.GONE
+            }
         }
     }
 

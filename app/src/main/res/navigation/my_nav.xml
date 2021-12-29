@@ -15,6 +15,9 @@
         <action
             android:id="@+id/action_firstFragment2_to_top250MoviesFragment"
             app:destination="@id/top250MoviesFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_popularMoviesFragment"
+            app:destination="@id/popularMoviesFragment" />
     </fragment>
     <fragment
         android:id="@+id/recentMoviesFragment"
@@ -28,4 +31,9 @@
         android:id="@+id/top250MoviesFragment"
         android:name="com.example.myproject.presentation.ui.top_250_movies.Top250MoviesFragment"
         android:label="Top250MoviesFragment" />
+    <fragment
+        android:id="@+id/popularMoviesFragment"
+        android:name="com.example.myproject.presentation.ui.popular_movies.PopularMoviesFragment"
+        android:label="popular_movies_fragment"
+        tools:layout="@layout/popular_movies_fragment" />
 </navigation>

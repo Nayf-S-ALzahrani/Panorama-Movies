@@ -26,8 +26,8 @@
                 android:layout_margin="20dp"
                 android:fontFamily="@font/poller_one"
                 android:text="@string/this_week_movies"
-                android:textColor="#E1333333"
-                android:textSize="16sp"
+                android:textColor="#F0000000"
+                android:textSize="19sp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
@@ -38,9 +38,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:layout_marginBottom="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/recent_movies" />
 
@@ -65,18 +64,18 @@
                 android:textSize="12sp"
                 app:layout_constraintBottom_toBottomOf="@+id/top250movies_icon"
                 app:layout_constraintEnd_toEndOf="@+id/top250movies_icon"
-                app:layout_constraintHorizontal_bias="0.087"
+                app:layout_constraintHorizontal_bias="0.101"
                 app:layout_constraintStart_toStartOf="@+id/top250movies_icon"
                 app:layout_constraintTop_toTopOf="@+id/top250movies_icon"
-                app:layout_constraintVertical_bias="0.462" />
+                app:layout_constraintVertical_bias="0.455" />
 
             <TextView
-                android:id="@+id/whach_now_top250"
+                android:id="@+id/watch_now_top250"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poller_one"
                 android:text="@string/watch_now"
-                android:textColor="@color/black"
+                android:textColor="#C61818"
                 app:layout_constraintBottom_toBottomOf="@+id/top250movies_icon"
                 app:layout_constraintEnd_toEndOf="@+id/top250movies_icon"
                 app:layout_constraintHorizontal_bias="0.13"
@@ -85,15 +84,44 @@
                 app:layout_constraintVertical_bias="0.699" />
 
             <ImageView
-                android:id="@+id/oscar_movies_icon"
+                android:id="@+id/popular_movies_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/top250movies_icon"
-                android:src="@drawable/ic_oscar_svg"
+                android:src="@drawable/popular_movies_background"
                 tools:ignore="ContentDescription"/>
+
+            <TextView
+                android:id="@+id/textView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poller_one"
+                android:text="@string/popular_movies"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="@+id/popular_movies_background"
+                app:layout_constraintEnd_toEndOf="@+id/popular_movies_background"
+                app:layout_constraintHorizontal_bias="0.101"
+                app:layout_constraintStart_toStartOf="@+id/popular_movies_background"
+                app:layout_constraintTop_toTopOf="@+id/popular_movies_background"
+                app:layout_constraintVertical_bias="0.414" />
+
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poller_one"
+                android:text="@string/watch_now"
+                android:textColor="#FFA400"
+                app:layout_constraintBottom_toBottomOf="@+id/popular_movies_background"
+                app:layout_constraintEnd_toEndOf="@+id/popular_movies_background"
+                app:layout_constraintHorizontal_bias="0.13"
+                app:layout_constraintStart_toStartOf="@+id/popular_movies_background"
+                app:layout_constraintTop_toTopOf="@+id/popular_movies_background"
+                app:layout_constraintVertical_bias="0.677" />
 
             <ImageView
                 android:id="@+id/imageView5"
@@ -103,7 +131,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.481"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/oscar_movies_icon"
+                app:layout_constraintTop_toBottomOf="@+id/popular_movies_background"
                 android:src="@drawable/ic_group_13_svg"
                 tools:ignore="ContentDescription"/>
 

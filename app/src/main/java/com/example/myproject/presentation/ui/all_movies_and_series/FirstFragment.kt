@@ -1,15 +1,12 @@
 package com.example.myproject.presentation.ui.all_movies_and_series
 
-import android.app.ActionBar
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
 import androidx.fragment.app.viewModels
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -19,7 +16,6 @@ import com.example.myproject.databinding.HomeBinding
 import com.example.myproject.databinding.RecentRecyclerviewBinding
 import com.example.myproject.domain.model.recent_movies.ItemRecent
 import com.example.myproject.presentation.recent_list.RecentListViewModel
-import com.example.myproject.presentation.top250_list.Top250ListViewModel
 import com.example.myproject.presentation.ui.recent_movies.RecentMoviesFragment
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -33,45 +29,53 @@ class FirstFragment : Fragment() {
     }
 
     private val recentViewModel by viewModels<RecentListViewModel>()
-    private lateinit var binding: HomeBinding
+    private lateinit var bindingHome: HomeBinding
     val recent by lazy { recentViewModel.state.value }
-
-    private val top250MoviesViewModel by viewModels<Top250ListViewModel>()
-    val top250 by lazy { top250MoviesViewModel.state.value }
-
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
 
-        binding = HomeBinding.inflate(layoutInflater)
-        binding.recentMoviesRecyclerView.layoutManager = LinearLayoutManager(
+        bindingHome = HomeBinding.inflate(layoutInflater)
+        bindingHome.recentMoviesRecyclerView.layoutManager = LinearLayoutManager(
             context,
             LinearLayoutManager.HORIZONTAL,
             false
         )
-        return binding.root
+        return bindingHome.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         recentViewModel.state.observe(viewLifecycleOwner) {
-            binding.recentMoviesRecyclerView.adapter = MainFragmentAdapter(it.recent)
-
+            when {
+                it.recent.isNotEmpty() -> {
+                    bindingHome.recentMoviesRecyclerView.adapter = MainFragmentAdapter(it.recent)
+                    Log.d(TAG, "The recent movies list: ${recent!!.recent}")
+                }
+                it.isLoading -> {
+                    //show progress bar
+                    Log.d(TAG, "Loading: ${recent?.isLoading}")
+                }
+                else -> {
+                    //toast error message
+                    Log.d(TAG, "Error:${recent?.error} ")
+                }
+            }
         }
     }
 
     override fun onStart() {
         super.onStart()
-        binding.top250moviesIcon.setOnClickListener {
+        bindingHome.top250moviesIcon.setOnClickListener {
             val navController = findNavController()
             navController.navigate(R.id.top250MoviesFragment)
-//            Toast.makeText(requireContext(), "az", Toast.LENGTH_SHORT).show()
+        }
+
+        bindingHome.popularMoviesBackground.setOnClickListener {
+            val navController = findNavController()
+            navController.navigate(R.id.popularMoviesFragment)
         }
     }
 
@@ -92,7 +96,7 @@ class FirstFragment : Fragment() {
     private inner class MainFragmentAdapter(val recent: List<ItemRecent>) :
         RecyclerView.Adapter<MainFragmentHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MainFragmentHolder {
-            val binding =RecentRecyclerviewBinding.inflate(
+            val binding = RecentRecyclerviewBinding.inflate(
                 layoutInflater,
                 parent,
                 false
