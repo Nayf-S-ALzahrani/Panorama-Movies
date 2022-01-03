@@ -5,20 +5,18 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import coil.load
-import com.example.myproject.R
 import com.example.myproject.databinding.RecentListItemBinding
 import com.example.myproject.databinding.RecentMoviesFragmentBinding
 import com.example.myproject.domain.model.recent_movies.ItemRecent
 import com.example.myproject.presentation.recent_list.RecentListViewModel
+import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "RecentMoviesFragment"
@@ -29,11 +27,6 @@ class RecentMoviesFragment : Fragment() {
     private val recentViewModel by viewModels<RecentListViewModel>()
     private lateinit var binding: RecentMoviesFragmentBinding
     val state by lazy { recentViewModel.state.value }
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -65,16 +58,19 @@ class RecentMoviesFragment : Fragment() {
             when {
                 it.recent.isNotEmpty() -> {
                     binding.moviesRv.adapter = RecentAdapter(it.recent)
-                    Log.d(TAG, "The recent movies list: ${state!!.recent}")
+                    Log.d(TAG, "The recent movies list: ${state?.recent}")
                 }
                 it.isLoading -> {
                     //show progress bar
                     Log.d(TAG, "Loading: ${state?.isLoading}")
                 }
                 else -> {
-                    //toast error message
-                    Log.d(TAG, "Error: ${state?.error}")
-                }
+                    //toast or Snackbar error message
+                        val snackbar =
+                            Snackbar.make(requireView(), "Error", Snackbar.LENGTH_LONG)
+                        snackbar.setAction("Dismiss") { snackbar.dismiss() }
+                        snackbar.show()
+                        Log.d(TAG, "Unknown error ${state?.error}")}
             }
         }
     }

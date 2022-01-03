@@ -2,8 +2,8 @@ package com.example.myproject.di
 
 import com.example.myproject.common.Constants
 import com.example.myproject.data.remote.ImdbApi
-import com.example.myproject.data.repository.MovieRepositoryImpl
-import com.example.myproject.domain.repository.MovieRepository
+import com.example.myproject.data.repository.MovieAndSeriesRepositoryImpl
+import com.example.myproject.domain.repository.MovieAndSeriesRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -29,7 +29,7 @@ object AppModule {
 
     @Provides
     @Singleton
-    fun provideMovieRepository(api:ImdbApi):MovieRepository {
-        return MovieRepositoryImpl(api)
+    fun provideMovieRepository(api:ImdbApi):MovieAndSeriesRepository {
+        return MovieAndSeriesRepositoryImpl(api)
     }
 }

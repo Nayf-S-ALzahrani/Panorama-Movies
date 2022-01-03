@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <com.google.android.material.imageview.ShapeableImageView
-        android:id="@+id/recent_movies_rv"
+        android:id="@+id/recent_movies_main_rv"
         android:layout_width="150dp"
         android:layout_height="200dp"
         android:layout_margin="1dp"
@@ -17,5 +17,16 @@
         app:shapeAppearanceOverlay="@style/roundedCorner1"
         app:strokeColor="#D8FFFFFF"
         app:strokeWidth="5dp" />
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf ="parent"
+        app:layout_constraintBottom_toBottomOf ="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

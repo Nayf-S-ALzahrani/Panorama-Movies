@@ -5,42 +5,63 @@
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.10885416666666667" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable/background_gradient.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/drawable/circle.xml" value="0.17592592592592593" />
-        <entry key="app/src/main/res/drawable/ic__.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/drawablebg_gradient.xml" value="0.2630769230769231" />
+        <entry key="app/src/main/res/drawable/ic__.xml" value="0.125" />
         <entry key="app/src/main/res/drawable/ic___cropped.xml" value="0.3260416666666667" />
         <entry key="app/src/main/res/drawable/ic_all.xml" value="0.625" />
         <entry key="app/src/main/res/drawable/ic_all_movie.xml" value="0.2671875" />
         <entry key="app/src/main/res/drawable/ic_all_svg.xml" value="0.1" />
+        <entry key="app/src/main/res/drawable/ic_baseline_arrow_back_ios_24.xml" value="0.12395833333333334" />
+        <entry key="app/src/main/res/drawable/ic_baseline_local_movies_24.xml" value="0.14722222222222223" />
         <entry key="app/src/main/res/drawable/ic_baseline_star_rate_24.xml" value="0.17314814814814813" />
+        <entry key="app/src/main/res/drawable/ic_bitmap.xml" value="0.11018518518518519" />
         <entry key="app/src/main/res/drawable/ic_group_13_svg.xml" value="0.14479166666666668" />
         <entry key="app/src/main/res/drawable/ic_group_24.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.31666666666666665" />
+        <entry key="app/src/main/res/drawable/ic_name.xml" value="0.2630769230769231" />
+        <entry key="app/src/main/res/drawable/ic_opening_screen.xml" value="0.2630769230769231" />
         <entry key="app/src/main/res/drawable/ic_oscar.xml" value="0.625" />
         <entry key="app/src/main/res/drawable/ic_oscar_svg.xml" value="0.45" />
+        <entry key="app/src/main/res/drawable/ic_red.xml" value="0.16018518518518518" />
         <entry key="app/src/main/res/drawable/popular_movies_background.xml" value="0.17592592592592593" />
         <entry key="app/src/main/res/drawable/recent_movies.xml" value="0.2671875" />
+        <entry key="app/src/main/res/drawable/splash_screen.xml" value="0.2630769230769231" />
         <entry key="app/src/main/res/drawable/style.xml" value="0.10648148148148148" />
         <entry key="app/src/main/res/drawable/top250.xml" value="0.21851851851851853" />
         <entry key="app/src/main/res/drawable/top250_background.xml" value="0.39828175119461756" />
+        <entry key="app/src/main/res/drawable/top250_movies_background.xml" value="0.16018518518518518" />
+        <entry key="app/src/main/res/drawable/top250_tvs_background.xml" value="0.14722222222222223" />
         <entry key="app/src/main/res/layout-v31/fragment_first.xml" value="0.28116213683223995" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/activity_splash_screen2.xml" value="0.22592592592592592" />
+        <entry key="app/src/main/res/layout/coming_soon_list_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/coming_soon_movies_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/coming_soon_recycleview.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/coming_soon_shrimmer_recyclerview.xml" value="0.25104166666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/home.xml" value="0.375" />
+        <entry key="app/src/main/res/layout/home.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/last_fragment.xml" value="0.28144826547956525" />
         <entry key="app/src/main/res/layout/movies_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/movies_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/oscar_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/oscar_movies_fragment.xml" value="0.308441348487975" />
-        <entry key="app/src/main/res/layout/popular_list_item.xml" value="0.2233502538071066" />
-        <entry key="app/src/main/res/layout/popular_movies_fragment.xml" value="0.4113756613756614" />
+        <entry key="app/src/main/res/layout/popular_list_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/popular_movies_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/recent_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recent_movies_fragment.xml" value="0.2177121771217712" />
         <entry key="app/src/main/res/layout/recent_recyclerview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/theater_list_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/theater_movies_fragment.xml" value="0.23985239852398524" />
+        <entry key="app/src/main/res/layout/top250_tvs_fragment.xml" value="0.2953125" />
         <entry key="app/src/main/res/layout/top_100_movies_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/top_100_movies_list_item.xml" value="0.350364516645174" />
-        <entry key="app/src/main/res/layout/top_250_movies_fragment.xml" value="0.6077600644360337" />
+        <entry key="app/src/main/res/layout/top_250_list_item.xml" value="0.165" />
+        <entry key="app/src/main/res/layout/top_250_movies_fragment.xml" value="0.2907692307692308" />
         <entry key="app/src/main/res/layout/top_250_movies_list_item.xml" value="0.10913433041104827" />
+        <entry key="app/src/main/res/layout/top_250_tvs_list_item.xml" value="0.1100839138804016" />
         <entry key="app/src/main/res/menu/back.xml" value="0.335" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.335" />
       </map>

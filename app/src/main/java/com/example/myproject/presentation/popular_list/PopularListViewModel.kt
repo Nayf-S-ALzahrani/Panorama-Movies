@@ -30,7 +30,7 @@ class PopularListViewModel @Inject constructor(
             when (result) {
                 is Resource.Success -> {
                     _state.value = PopularValue(popular = result.data?.filter {
-                        it.rating.isNotBlank()
+                        it.rating.isNotBlank() && it.image.isNotBlank() && it.title.isNotBlank()
                     } ?: emptyList())
                     Log.d(TAG, "getRecent: ${result.data}")
                 }

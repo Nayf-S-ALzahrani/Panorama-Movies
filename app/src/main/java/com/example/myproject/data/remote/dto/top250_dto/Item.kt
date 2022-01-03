@@ -1,6 +1,6 @@
 package com.example.myproject.data.remote.dto.top250_dto
 
-import com.example.myproject.domain.model.top250movies.ItemTop250
+import com.example.myproject.domain.model.top250_movies.ItemTop250
 
 data class Item(
     val crew: String,

@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.myproject.common.Resource
 import com.example.myproject.domain.use_case.get_recent.GetRecentMoviesUseCase
+import com.example.myproject.presentation.top250_list.Top250Value
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -30,15 +31,15 @@ class RecentListViewModel @Inject constructor(
         getRecentMoviesUseCase().onEach { result ->
             when (result) {
                 is Resource.Success -> {
-                    _state.value = RecentValue(recent = result.data ?: emptyList())
-//                    _state.value = result.data ?: emptyList()
-//                    _state.value = Top250ListState(top250 = result.data ?: emptyList())
+                    _state.value = RecentValue(recent = result.data?.filter {
+                        it.image.isNotBlank() && it.title.isNotBlank() && it.show_time.isNotBlank()
+                    } ?: emptyList())
+
                     Log.d(TAG, "getRecent: ${result.data}")
                 }
                 is Resource.Error -> {
-                    _state.value = RecentValue(error = result.message ?: "An unexpected error occurred")
-//                    _state.value = result.message.data(
-//                        error = result.message ?: "An unexpected error occurred"
+                    _state.value =
+                        RecentValue(error = result.message ?: "An unexpected error occurred")
                 }
                 is Resource.Loading -> {
                     _state.value = RecentValue(isLoading = true)

@@ -71,52 +71,40 @@ class PopularMoviesFragment : Fragment() {
         popularViewModel.state.observe(viewLifecycleOwner) {
             when {
                 it.popular.isNotEmpty() -> {
+                    binding.progressBar.visibility = View.INVISIBLE
                     binding.popularRv.adapter = PopularAdapter(it.popular)
                     movies = it.popular
-//                    Log.d(TAG, "The popular movies list: ${state!!.popular}")
+                    Log.d(TAG, "The popular movies list: ${state!!.popular}")
                 }
                 it.isLoading -> {
                     //show progress bar
+                    binding.progressBar.visibility = View.VISIBLE
                     Log.d(TAG, "Loading: ${state?.isLoading}")
                 }
                 it.error.isNotBlank() -> {
+                    //toast error message
                     val snackbar =
                         Snackbar.make(requireView(), "Error Connection", Snackbar.LENGTH_LONG)
-                    snackbar.setAction("dismiss") { snackbar.dismiss() }
+                    snackbar.setAction("Dismiss") { snackbar.dismiss() }
                     snackbar.show()
                     Log.d(TAG, "Error: ${state?.error}")
                 }
-//                else -> Log.d(TAG, "Unknown error ${state?.error}")
+                else -> Log.d(TAG, "Unknown error ${state?.error}")
             }
             movies?.let {
                 binding.popularMovieTitle.text = it[0].title
-                binding.popularMovieTitle2.text=it[0].title
-//                Log.d(TAG, "first movie: $it")
+                binding.popularMovieTitle2.text = it[0].title
+                Log.d(TAG, "First movie: $it")
             }
         }
     }
 
-
     private inner class PopularHolder(val binding: PopularListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
-        lateinit var movie: ItemPopular
         fun bind(popular: ItemPopular) {
-
-            if (binding.posterIv.toString().isBlank()) {
-                binding.posterIv.visibility = ImageView.GONE
-            } else {
-                binding.posterIv.load(popular.image)
-                binding.rate.text = popular.rating
-//                if (binding.rate.text.isNotBlank()){
-//
-//                    binding.rate.visibility = TextView.VISIBLE
-//                    binding.rating.visibility = ImageView.VISIBLE
-//                    binding.imageView.visibility = ImageView.VISIBLE
-//
-//                }
-            }
-
+            binding.posterIv.load(popular.image)
+            binding.rate.text = popular.rating
         }
     }
 
@@ -136,11 +124,8 @@ class PopularMoviesFragment : Fragment() {
 
         override fun onBindViewHolder(holder: PopularHolder, position: Int) {
             val movie = popular[position]
-
             holder.bind(movie)
-
-//            Log.d(TAG, "bind: ${movie.title} : ${movie.rating}")
-
+            Log.d(TAG, "Bind: ${movie.title} : ${movie.rating}")
         }
 
         override fun getItemCount(): Int = popular.size

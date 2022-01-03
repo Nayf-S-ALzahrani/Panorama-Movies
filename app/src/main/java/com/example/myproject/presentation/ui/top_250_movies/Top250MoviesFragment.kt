@@ -9,10 +9,11 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.myproject.databinding.Top250ListItemBinding
 import com.example.myproject.databinding.Top250MoviesFragmentBinding
-import com.example.myproject.databinding.Top250MoviesListItemBinding
-import com.example.myproject.domain.model.top250movies.ItemTop250
+import com.example.myproject.domain.model.top250_movies.ItemTop250
 import com.example.myproject.presentation.top250_list.Top250ListViewModel
+import com.google.android.material.snackbar.Snackbar
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -62,16 +63,22 @@ class Top250MoviesFragment : Fragment() {
         top250MoviesViewModel.state.observe(viewLifecycleOwner) {
             when {
                 it.top250.isNotEmpty() -> {
+                    binding.progressBar.visibility = View.INVISIBLE
                     binding.top250MoviesRv.adapter = Top250MoviesAdapter(it.top250)
                     movies = it.top250
                     Log.d(TAG, "The top 250 movies list: ${state!!.top250}")
                 }
                 it.isLoading -> {
                     //show progress bar
+                    binding.progressBar.visibility = View.VISIBLE
                     Log.d(TAG, "Loading: ${state?.isLoading}")
                 }
                 else -> {
                     //toast error message
+                    val snackbar =
+                        Snackbar.make(requireView(), "Error Connection", Snackbar.LENGTH_LONG)
+                    snackbar.setAction("Dismiss") { snackbar.dismiss() }
+                    snackbar.show()
                     Log.d(TAG, "Error:${state?.error} ")
                 }
             }
@@ -83,7 +90,7 @@ class Top250MoviesFragment : Fragment() {
         }
     }
 
-    private inner class Top250MoviesHolder(val binding: Top250MoviesListItemBinding) :
+    private inner class Top250MoviesHolder(val binding: Top250ListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         lateinit var movie: ItemTop250
@@ -91,23 +98,15 @@ class Top250MoviesFragment : Fragment() {
             this.movie = movie
             binding.posterIv.load(movie.image)
             binding.rate.text = movie.rating
-
-            if (binding.rate.text.isNotBlank()) {
-                binding.rate.text = movie.rating
-                Log.d(TAG, "bind: ${movie.rating}")
-                Log.d(TAG, "bind: ${movie.title}")
-            } else {
-                binding.rating.visibility = View.GONE
-                binding.rate.visibility = View.GONE
-                binding.imageView.visibility = View.GONE
-            }
+            Log.d(TAG, "Bind rating: ${movie.rating}")
+            Log.d(TAG, "Bind title: ${movie.title}")
         }
     }
 
     private inner class Top250MoviesAdapter(val topMovie: List<ItemTop250>) :
         RecyclerView.Adapter<Top250MoviesHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): Top250MoviesHolder {
-            val binding = Top250MoviesListItemBinding.inflate(
+            val binding = Top250ListItemBinding.inflate(
                 layoutInflater,
                 parent,
                 false

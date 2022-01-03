@@ -6,7 +6,7 @@
     app:startDestination="@id/firstFragment">
     <fragment
         android:id="@+id/firstFragment"
-        android:name="com.example.myproject.presentation.ui.all_movies_and_series.FirstFragment"
+        android:name="com.example.myproject.presentation.ui.home_fragment.HomeFragment"
         android:label="fragment_first"
         tools:layout="@layout/fragment_first" >
         <action
@@ -18,15 +18,17 @@
         <action
             android:id="@+id/action_firstFragment_to_popularMoviesFragment"
             app:destination="@id/popularMoviesFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_comingSoonMoviesFragment"
+            app:destination="@id/comingSoonMoviesFragment" />
+        <action
+            android:id="@+id/action_firstFragment_to_top250TVsFragment"
+            app:destination="@id/top250TVsFragment" />
     </fragment>
     <fragment
         android:id="@+id/recentMoviesFragment"
         android:name="com.example.myproject.presentation.ui.recent_movies.RecentMoviesFragment"
-        android:label="RecentMoviesFragment" >
-        <action
-            android:id="@+id/action_recentMoviesFragment_to_firstFragment"
-            app:destination="@id/firstFragment" />
-    </fragment>
+        android:label="RecentMoviesFragment" />
     <fragment
         android:id="@+id/top250MoviesFragment"
         android:name="com.example.myproject.presentation.ui.top_250_movies.Top250MoviesFragment"
@@ -36,4 +38,16 @@
         android:name="com.example.myproject.presentation.ui.popular_movies.PopularMoviesFragment"
         android:label="popular_movies_fragment"
         tools:layout="@layout/popular_movies_fragment" />
+    <fragment
+        android:id="@+id/comingSoonMoviesFragment"
+        android:name="com.example.myproject.presentation.ui.coming_soon_movies.ComingSoonMoviesFragment"
+        android:label="ComingSoonMoviesFragment" >
+        <argument
+            android:name="position"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/top250TVsFragment"
+        android:name="com.example.myproject.presentation.ui.top_250_tvs.Top250TVsFragment"
+        android:label="Top250TVsFragment" />
 </navigation>

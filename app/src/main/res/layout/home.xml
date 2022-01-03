@@ -24,6 +24,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_margin="20dp"
+                android:layout_marginStart="10dp"
                 android:fontFamily="@font/poller_one"
                 android:text="@string/this_week_movies"
                 android:textColor="#F0000000"
@@ -31,7 +32,8 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@id/recent_movies_recyclerView"/>
 
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recent_movies_recyclerView"
@@ -41,33 +43,83 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recent_movies" />
+                app:layout_constraintTop_toBottomOf="@+id/recent_movies"
+                app:layout_constraintBottom_toTopOf="@id/coming_soon_movies"/>
 
-            <ImageView
-                android:id="@+id/top250movies_icon"
+            <TextView
+                android:id="@+id/coming_soon_movies"
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_margin="20dp"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/poller_one"
+                android:text="@string/movies_coming_soon"
+                android:textColor="#F0000000"
+                android:textSize="19sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/recent_movies_recyclerView"
+                app:layout_constraintBottom_toTopOf="@id/comin_soon_movies_recyclerView"/>
+
+            <com.facebook.shimmer.ShimmerFrameLayout
+                android:id="@+id/shimmer_view_container"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:layout_editor_absoluteY="45dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@id/comin_soon_movies_recyclerView"
+                app:layout_constraintBottom_toBottomOf="@id/comin_soon_movies_recyclerView">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="horizontal">
+                    <include layout="@layout/coming_soon_shrimmer_recyclerview" />
+                    <include layout="@layout/coming_soon_shrimmer_recyclerview" />
+                    <include layout="@layout/coming_soon_shrimmer_recyclerview" />
+                    <include layout="@layout/coming_soon_shrimmer_recyclerview" />
+
+                </LinearLayout>
+            </com.facebook.shimmer.ShimmerFrameLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/comin_soon_movies_recyclerView"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/recent_movies_recyclerView"
-                android:src="@drawable/top250"
-                tools:ignore="ContentDescription"/>
+                app:layout_constraintTop_toBottomOf="@+id/coming_soon_movies"
+                app:layout_constraintBottom_toTopOf="@id/top250movies_background"/>
 
+            <ImageView
+                android:id="@+id/top250movies_background"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/top250_movies_background"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.512"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/comin_soon_movies_recyclerView"
+                app:layout_constraintBottom_toTopOf="@id/popular_movies_background"
+                tools:ignore="ContentDescription" />
 
             <TextView
+                android:id="@+id/top250_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poller_one"
                 android:text="@string/top_250_movies"
                 android:textColor="@color/white"
                 android:textSize="12sp"
-                app:layout_constraintBottom_toBottomOf="@+id/top250movies_icon"
-                app:layout_constraintEnd_toEndOf="@+id/top250movies_icon"
-                app:layout_constraintHorizontal_bias="0.101"
-                app:layout_constraintStart_toStartOf="@+id/top250movies_icon"
-                app:layout_constraintTop_toTopOf="@+id/top250movies_icon"
-                app:layout_constraintVertical_bias="0.455" />
+                app:layout_constraintBottom_toBottomOf="@+id/top250movies_background"
+                app:layout_constraintEnd_toEndOf="@+id/top250movies_background"
+                app:layout_constraintHorizontal_bias="0.098"
+                app:layout_constraintStart_toStartOf="@+id/top250movies_background"
+                app:layout_constraintTop_toTopOf="@+id/top250movies_background"
+                app:layout_constraintVertical_bias="0.517" />
 
             <TextView
                 android:id="@+id/watch_now_top250"
@@ -76,26 +128,28 @@
                 android:fontFamily="@font/poller_one"
                 android:text="@string/watch_now"
                 android:textColor="#C61818"
-                app:layout_constraintBottom_toBottomOf="@+id/top250movies_icon"
-                app:layout_constraintEnd_toEndOf="@+id/top250movies_icon"
-                app:layout_constraintHorizontal_bias="0.13"
-                app:layout_constraintStart_toStartOf="@+id/top250movies_icon"
-                app:layout_constraintTop_toTopOf="@+id/top250movies_icon"
-                app:layout_constraintVertical_bias="0.699" />
+                app:layout_constraintBottom_toBottomOf="@+id/top250movies_background"
+                app:layout_constraintEnd_toEndOf="@+id/top250movies_background"
+                app:layout_constraintHorizontal_bias="0.127"
+                app:layout_constraintStart_toStartOf="@+id/top250movies_background"
+                app:layout_constraintTop_toTopOf="@+id/top250movies_background"
+                app:layout_constraintVertical_bias="0.812" />
 
             <ImageView
                 android:id="@+id/popular_movies_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:src="@drawable/popular_movies_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/top250movies_icon"
-                android:src="@drawable/popular_movies_background"
-                tools:ignore="ContentDescription"/>
+                app:layout_constraintTop_toBottomOf="@+id/top250movies_background"
+                app:layout_constraintBottom_toTopOf ="@+id/top250_tvs_background"
+                tools:ignore="ContentDescription" />
+
 
             <TextView
-                android:id="@+id/textView"
+                android:id="@+id/popular_textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poller_one"
@@ -107,10 +161,12 @@
                 app:layout_constraintHorizontal_bias="0.101"
                 app:layout_constraintStart_toStartOf="@+id/popular_movies_background"
                 app:layout_constraintTop_toTopOf="@+id/popular_movies_background"
-                app:layout_constraintVertical_bias="0.414" />
+                app:layout_constraintVertical_bias="0.414"
+                tools:ignore="TextContrastCheck" />
 
 
             <TextView
+                android:id="@+id/watch_now_popular_movies"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poller_one"
@@ -123,17 +179,77 @@
                 app:layout_constraintTop_toTopOf="@+id/popular_movies_background"
                 app:layout_constraintVertical_bias="0.677" />
 
+
             <ImageView
-                android:id="@+id/imageView5"
+                android:id="@+id/top250_tvs_background"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
+                android:src="@drawable/top250_tvs_background"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.481"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/popular_movies_background"
-                android:src="@drawable/ic_group_13_svg"
-                tools:ignore="ContentDescription"/>
+                app:layout_constraintBottom_toBottomOf="parent"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:id="@+id/top250_tvs_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/poller_one"
+                android:text="@string/top_250_tvs_show"
+                android:textColor="@color/white"
+                android:textSize="12sp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="@+id/top250_tvs_background"
+                app:layout_constraintHorizontal_bias="0.328"
+                app:layout_constraintStart_toStartOf="@+id/top250_tvs_background"
+                app:layout_constraintTop_toTopOf="@+id/top250_tvs_background"
+                app:layout_constraintVertical_bias="0.277" />
+
+            <TextView
+                android:id="@+id/watch_now_top250_tvs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="56dp"
+                android:fontFamily="@font/poller_one"
+                android:text="@string/watch_now"
+                android:textColor="@color/white"
+                app:layout_constraintBottom_toBottomOf="@+id/top250_tvs_background"
+                app:layout_constraintEnd_toEndOf="@+id/top250_tvs_background"
+                app:layout_constraintHorizontal_bias="0.363"
+                app:layout_constraintStart_toStartOf="@+id/top250_tvs_background"
+                app:layout_constraintTop_toBottomOf="@+id/top250_tvs_tv"
+                app:layout_constraintVertical_bias="1.0" />
+
+            <TextView
+                android:id="@+id/error_msg_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#FF0000"
+                android:textSize="18sp"
+                android:visibility="invisible"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.489"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.087"
+                tools:text="TextView" />
+
+<!--            <ProgressBar-->
+<!--                android:id="@+id/progressBar"-->
+<!--                style="?android:attr/progressBarStyleHorizontal"-->
+<!--                android:elevation="30dp"-->
+<!--                android:layout_width="150dp"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                app:layout_constraintBottom_toBottomOf="@+id/comin_soon_movies_recyclerView"-->
+<!--                app:layout_constraintEnd_toEndOf="parent"-->
+<!--                app:layout_constraintHorizontal_bias="0.498"-->
+<!--                app:layout_constraintStart_toStartOf="parent"-->
+<!--                app:layout_constraintTop_toBottomOf="@id/coming_soon_movies"-->
+<!--                app:layout_constraintVertical_bias="0.053" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

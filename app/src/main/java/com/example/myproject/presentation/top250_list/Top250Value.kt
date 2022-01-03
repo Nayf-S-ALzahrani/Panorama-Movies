@@ -1,6 +1,6 @@
 package com.example.myproject.presentation.top250_list
 
-import com.example.myproject.domain.model.top250movies.ItemTop250
+import com.example.myproject.domain.model.top250_movies.ItemTop250
 
 data class Top250Value(
     val isLoading: Boolean = false,
