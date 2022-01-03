@@ -17,22 +17,22 @@ const val API_KEY ="k_09ko5ajr"//"k_l826iwT6" - "k_5lbkeqi2"
 //https://imdb-api.com/Identity/Account/Manage
 
 interface ImdbApi {
-    @GET("/en/API/InTheaters/k_l826iwT6")
+    @GET("/en/API/InTheaters/k_09ko5ajr")
     suspend fun getRecentMovies(): Response<RecentMoviesDTO>
 
-    @GET("/en/API/YouTubeTrailer/k_l826iwT6")
+    @GET("/en/API/YouTubeTrailer/k_09ko5ajr")
     suspend fun getTrailer(@Path("Id") id: String):Response<Trailer>
 
-    @GET("/en/API/Top250Movies/k_l826iwT6")
+    @GET("/en/API/Top250Movies/k_09ko5ajr")
     suspend fun getTop250Movies():Response<Top250MoviesDTO>
 
-    @GET("/en/API/MostPopularMovies/k_l826iwT6")
+    @GET("/en/API/MostPopularMovies/k_09ko5ajr")
     suspend fun getMostPopular():Response<MostPopularMoviesDTO>
 
-    @GET("/en/API/ComingSoon/k_l826iwT6")
+    @GET("/en/API/ComingSoon/k_09ko5ajr")
     suspend fun getComingSoon():Response<ComingSoonDTO>
 
-    @GET("/en/API/Top250TVs/k_l826iwT6")
+    @GET("/en/API/Top250TVs/k_09ko5ajr")
     suspend fun getTop250TVs():Response<Top250TVsDTO>
 
     @GET("/en/API/Title/k_l826iwT6/tt1375666/FullActor,Posters,Images,Trailer,Ratings,")
