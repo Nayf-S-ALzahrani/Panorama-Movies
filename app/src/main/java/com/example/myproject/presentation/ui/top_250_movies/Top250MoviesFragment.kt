@@ -50,7 +50,6 @@ class Top250MoviesFragment : Fragment() {
             override fun onItemSelected(position: Int) {
                 movies?.let {
                     binding.movieTitle.text = it[position].title
-                    binding.movieTitle2.text = it[position].title
                     Log.d(TAG, "onItemSelected: work")
                 }
             }
@@ -84,7 +83,6 @@ class Top250MoviesFragment : Fragment() {
             }
             movies?.let {
                 binding.movieTitle.text = it[0].title
-                binding.movieTitle2.text = it[0].title
                 Log.d(TAG, "onItemSelected: work")
             }
         }

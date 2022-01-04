@@ -57,7 +57,6 @@ class Top250TVsFragment : Fragment() {
             override fun onItemSelected(position: Int) {
                 series?.let {
                     binding.top250tvsTitle.text = it[position].title
-                    binding.top250tvsTitle2.text = it[position].title
                     Log.d(TAG, "Top 250 TVs titles: ${it.size}")
                 }
             }
@@ -97,7 +96,6 @@ class Top250TVsFragment : Fragment() {
             }
             series?.let {
                 binding.top250tvsTitle.text = it[0].title
-                binding.top250tvsTitle2.text = it[0].title
                 Log.d(TAG, "First series: $it")
             }
         }

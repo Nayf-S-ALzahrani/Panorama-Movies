@@ -9,33 +9,17 @@
         android:id="@+id/top250tvs_title"
         android:layout_width="384dp"
         android:layout_height="wrap_content"
-        android:fontFamily="@font/poller_one"
+        android:fontFamily="@font/playfair_display_sc"
         android:gravity="center_horizontal"
         android:textColor="#D0000000"
-        android:textSize="24sp"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/top250tvs_rv"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.775"
-        tools:text="TextView" />
-
-    <TextView
-        android:id="@+id/top250tvs_title2"
-        android:layout_width="384dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-10dp"
-        android:fontFamily="@font/poller_one"
-        android:gravity="center_horizontal"
-        android:textColor="#40000000"
-        android:textSize="24sp"
-        app:layout_constraintBottom_toTopOf="@+id/top250tvs_rv"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.481"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.81"
         tools:text="TextView" />
 
     <com.jackandphantom.carouselrecyclerview.CarouselRecyclerview

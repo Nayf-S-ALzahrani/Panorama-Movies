@@ -57,7 +57,6 @@ class PopularMoviesFragment : Fragment() {
         binding.popularRv.setItemSelectListener(object : CarouselLayoutManager.OnSelected {
             override fun onItemSelected(position: Int) {
                 movies?.let {
-                    binding.popularMovieTitle2.text = it[position].title
                     binding.popularMovieTitle.text = it[position].title
                     Log.d(TAG, "popular movies titles: ${it.size}")
                 }
@@ -93,7 +92,6 @@ class PopularMoviesFragment : Fragment() {
             }
             movies?.let {
                 binding.popularMovieTitle.text = it[0].title
-                binding.popularMovieTitle2.text = it[0].title
                 Log.d(TAG, "First movie: $it")
             }
         }
