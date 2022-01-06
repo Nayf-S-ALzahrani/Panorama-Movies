@@ -44,7 +44,8 @@
         <entry key="app/src/main/res/layout/coming_soon_shrimmer_recyclerview.xml" value="0.25104166666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home.xml" value="0.33565459610027853" />
-        <entry key="app/src/main/res/layout/last_fragment.xml" value="0.28144826547956525" />
+        <entry key="app/src/main/res/layout/last_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/last_list_fragment.xml" value="0.30462962962962964" />
         <entry key="app/src/main/res/layout/movies_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/movies_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/oscar_list_item.xml" value="0.1" />
@@ -54,6 +55,7 @@
         <entry key="app/src/main/res/layout/recent_list_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/recent_movies_fragment.xml" value="0.2177121771217712" />
         <entry key="app/src/main/res/layout/recent_recyclerview.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/rr.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/layout/theater_list_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/theater_movies_fragment.xml" value="0.23985239852398524" />
         <entry key="app/src/main/res/layout/top250_tvs_fragment.xml" value="0.2953125" />

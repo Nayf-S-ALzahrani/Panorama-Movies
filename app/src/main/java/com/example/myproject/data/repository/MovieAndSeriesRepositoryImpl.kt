@@ -4,11 +4,10 @@ import com.example.myproject.data.remote.ImdbApi
 import com.example.myproject.data.remote.dto.coming_soon_dto.ComingSoonDTO
 import com.example.myproject.data.remote.dto.popular_dto.MostPopularMoviesDTO
 import com.example.myproject.data.remote.dto.recent_dto.RecentMoviesDTO
-import com.example.myproject.data.remote.dto.title_dto.IDTitleDTO
+import com.example.myproject.data.remote.dto.detail_dto.ShowDetailDTO
 import com.example.myproject.data.remote.dto.top250_dto.Top250MoviesDTO
 import com.example.myproject.data.remote.dto.top250_tvs_dto.Top250TVsDTO
 import com.example.myproject.domain.repository.MovieAndSeriesRepository
-import retrofit2.Call
 import retrofit2.Response
 import javax.inject.Inject
 
@@ -37,7 +36,7 @@ class MovieAndSeriesRepositoryImpl @Inject constructor(
         return api.getTop250TVs()
     }
 
-    override suspend fun getShow(query: String): Response<IDTitleDTO> {
-        return api.getShow(String())
+    override suspend fun getShowById(showId:String): ShowDetailDTO {
+        return api.getShow(showId)
     }
 }

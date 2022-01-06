@@ -7,10 +7,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.myproject.R
 import com.example.myproject.databinding.PopularListItemBinding
 import com.example.myproject.databinding.PopularMoviesFragmentBinding
 import com.example.myproject.domain.model.most_popular_movies.ItemPopular
@@ -18,6 +21,7 @@ import com.example.myproject.presentation.popular_list.PopularListViewModel
 import com.google.android.material.snackbar.Snackbar
 import com.jackandphantom.carouselrecyclerview.CarouselLayoutManager
 import dagger.hilt.android.AndroidEntryPoint
+import javax.persistence.Id
 
 private const val TAG = "PopularMoviesFragment"
 
@@ -28,10 +32,6 @@ class PopularMoviesFragment : Fragment() {
     private lateinit var binding: PopularMoviesFragmentBinding
     val state by lazy { popularViewModel.state.value }
     private var movies: List<ItemPopular>? = null
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -70,14 +70,14 @@ class PopularMoviesFragment : Fragment() {
         popularViewModel.state.observe(viewLifecycleOwner) {
             when {
                 it.popular.isNotEmpty() -> {
-                    binding.progressBar.visibility = View.INVISIBLE
+                    binding.animationView.visibility = View.INVISIBLE
                     binding.popularRv.adapter = PopularAdapter(it.popular)
                     movies = it.popular
                     Log.d(TAG, "The popular movies list: ${state!!.popular}")
                 }
                 it.isLoading -> {
                     //show progress bar
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.animationView.visibility = View.VISIBLE
                     Log.d(TAG, "Loading: ${state?.isLoading}")
                 }
                 it.error.isNotBlank() -> {
@@ -103,6 +103,12 @@ class PopularMoviesFragment : Fragment() {
         fun bind(popular: ItemPopular) {
             binding.posterIv.load(popular.image)
             binding.rate.text = popular.rating
+
+            binding.posterIv.setOnClickListener {
+                val id = popular.popularId
+                val showId =  bundleOf("showId" to id)
+                findNavController().navigate(R.id.lastFragment,showId)
+            }
         }
     }
 

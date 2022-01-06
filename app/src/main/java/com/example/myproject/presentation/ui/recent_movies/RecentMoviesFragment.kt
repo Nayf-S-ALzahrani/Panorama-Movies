@@ -5,13 +5,16 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import androidx.recyclerview.widget.SnapHelper
 import coil.load
+import com.example.myproject.R
 import com.example.myproject.databinding.RecentListItemBinding
 import com.example.myproject.databinding.RecentMoviesFragmentBinding
 import com.example.myproject.domain.model.recent_movies.ItemRecent
@@ -66,11 +69,12 @@ class RecentMoviesFragment : Fragment() {
                 }
                 else -> {
                     //toast or Snackbar error message
-                        val snackbar =
-                            Snackbar.make(requireView(), "Error", Snackbar.LENGTH_LONG)
-                        snackbar.setAction("Dismiss") { snackbar.dismiss() }
-                        snackbar.show()
-                        Log.d(TAG, "Unknown error ${state?.error}")}
+                    val snackbar =
+                        Snackbar.make(requireView(), "Error", Snackbar.LENGTH_LONG)
+                    snackbar.setAction("Dismiss") { snackbar.dismiss() }
+                    snackbar.show()
+                    Log.d(TAG, "Unknown error ${state?.error}")
+                }
             }
         }
     }
@@ -85,6 +89,11 @@ class RecentMoviesFragment : Fragment() {
             Log.d(TAG, "bind: ${recent.image}")
             binding.backgroundImageView.load(recent.image)
             binding.releaseStateTv.text = recent.show_time
+            binding.posterIv.setOnClickListener {
+                val id = recent.theater_id
+                val showId = bundleOf("showId" to id)
+                findNavController().navigate(R.id.lastFragment, showId)
+            }
         }
     }
 

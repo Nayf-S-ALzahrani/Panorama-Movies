@@ -164,7 +164,7 @@
                 android:fontFamily="@font/playfair_display"
                 android:text="@string/popular_movies"
                 android:textColor="@color/white"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="@+id/popular_movies_background"
                 app:layout_constraintEnd_toEndOf="@+id/popular_movies_background"
@@ -212,7 +212,7 @@
                 android:fontFamily="@font/playfair_display"
                 android:text="@string/top_250_tvs_show"
                 android:textColor="@color/white"
-                android:textSize="18dp"
+                android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="@+id/top250_tvs_background"
@@ -252,19 +252,6 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintVertical_bias="0.087"
                 tools:text="TextView" />
-
-<!--            <ProgressBar-->
-<!--                android:id="@+id/progressBar"-->
-<!--                style="?android:attr/progressBarStyleHorizontal"-->
-<!--                android:elevation="30dp"-->
-<!--                android:layout_width="150dp"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                app:layout_constraintBottom_toBottomOf="@+id/comin_soon_movies_recyclerView"-->
-<!--                app:layout_constraintEnd_toEndOf="parent"-->
-<!--                app:layout_constraintHorizontal_bias="0.498"-->
-<!--                app:layout_constraintStart_toStartOf="parent"-->
-<!--                app:layout_constraintTop_toBottomOf="@id/coming_soon_movies"-->
-<!--                app:layout_constraintVertical_bias="0.053" />-->
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

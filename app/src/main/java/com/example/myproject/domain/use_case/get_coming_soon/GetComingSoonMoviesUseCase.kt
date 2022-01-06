@@ -22,9 +22,6 @@ class GetComingSoonMoviesUseCase @Inject constructor(
             val response = comingSoonAndSeriesRepository.getComingSoonMovies()
             val comingSoon =
                 response.body()!!.items.map { it.toItemComingSoon() }
-//                filter { // sort the list
-//                    it.image.isNotBlank()
-//                }.map { it.toItemComingSoon() }.distinct()
             if (comingSoon.isEmpty()) throw IllegalStateException(response.body()!!.errorMessage)
             emit(Resource.Success<List<ItemComingSoon>>(comingSoon))
             Log.d(TAG, "$comingSoon")

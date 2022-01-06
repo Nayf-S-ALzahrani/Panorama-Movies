@@ -3,12 +3,10 @@ package com.example.myproject.domain.repository
 import com.example.myproject.data.remote.dto.coming_soon_dto.ComingSoonDTO
 import com.example.myproject.data.remote.dto.popular_dto.MostPopularMoviesDTO
 import com.example.myproject.data.remote.dto.recent_dto.RecentMoviesDTO
-import com.example.myproject.data.remote.dto.title_dto.IDTitleDTO
+import com.example.myproject.data.remote.dto.detail_dto.ShowDetailDTO
 import com.example.myproject.data.remote.dto.top250_dto.Top250MoviesDTO
 import com.example.myproject.data.remote.dto.top250_tvs_dto.Top250TVsDTO
-import retrofit2.Call
 import retrofit2.Response
-import retrofit2.http.Query
 
 interface MovieAndSeriesRepository {
 
@@ -22,6 +20,6 @@ interface MovieAndSeriesRepository {
 
     suspend fun getTop250TVs():Response<Top250TVsDTO>
 
-    suspend fun getShow(query:String): Response<IDTitleDTO>
+    suspend fun getShowById(showId:String):ShowDetailDTO
 
 }

@@ -6,19 +6,28 @@
     android:layout_height="wrap_content"
     tools:context=".SplashScreenActivity">
 
-    <ImageView
-        android:id="@+id/splash_screen"
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/animationView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="false"
-        android:layout_alignParentTop="false"
-        android:layout_alignParentEnd="false"
-        android:layout_alignParentBottom="false"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="0dp"
-        android:layout_marginEnd="0dp"
-        android:layout_marginBottom="0dp"
-        android:scaleType="centerCrop"
-        android:src="@drawable/sscreen" />
+        app:lottie_autoPlay="true"
+        app:lottie_loop="false"
+        app:lottie_rawRes="@raw/sphash"
+        app:lottie_url="REPLACE_JSON_URL" />
+
+<!--    <ImageView-->
+<!--        android:id="@+id/splash_screen"-->
+<!--        android:layout_width="wrap_content"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_alignParentStart="false"-->
+<!--        android:layout_alignParentTop="false"-->
+<!--        android:layout_alignParentEnd="false"-->
+<!--        android:layout_alignParentBottom="false"-->
+<!--        android:layout_marginStart="0dp"-->
+<!--        android:layout_marginTop="0dp"-->
+<!--        android:layout_marginEnd="0dp"-->
+<!--        android:layout_marginBottom="0dp"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        android:src="@drawable/sscreen" />-->
 
 </RelativeLayout>

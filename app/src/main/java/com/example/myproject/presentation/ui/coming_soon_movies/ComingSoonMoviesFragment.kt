@@ -33,7 +33,7 @@ private const val TAG = "ComingSoonMoviesFragment"
 
 @AndroidEntryPoint
 class ComingSoonMoviesFragment : Fragment() {
-   // var position: Int? = null
+    // var position: Int? = null
 
     private val comingSoonViewModel by viewModels<ComingSoonListViewModel>()
     private lateinit var binding: ComingSoonMoviesFragmentBinding
@@ -47,8 +47,8 @@ class ComingSoonMoviesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-    //    position = comingSoonViewModel.position
-     //   position=arguments?.getInt(Constants.POSITION)
+        //    position = comingSoonViewModel.position
+        //   position=arguments?.getInt(Constants.POSITION)
 //            arguments?.getInt(Constants.POSITION).let {//just for rotation
 //                comingSoonViewModel.putPosition(it!!)
 //            }
@@ -92,13 +92,17 @@ class ComingSoonMoviesFragment : Fragment() {
         }
     }
 
+    override fun onStop() {
+        super.onStop()
+        // save position before transl
+        comingSoonViewModel.position = binding.comingSoonMoviesRv.getChildAdapterPosition(binding.comingSoonMoviesRv.focusedChild)
+    }
+
     private inner class ComingSoonHolder(val binding: ComingSoonListItemBinding) :
-        RecyclerView.ViewHolder(binding.root){
-//        ,View.OnClickListener {
+        RecyclerView.ViewHolder(binding.root) {
+        //        ,View.OnClickListener {
         lateinit var comingSoon: ItemComingSoon
-//        init {
-//            itemView.setOnClickListener(this)
-//        }
+
         fun bind(comingSoon: ItemComingSoon) {
             this.comingSoon = comingSoon
             binding.titleTv.text = comingSoon.title
@@ -106,12 +110,12 @@ class ComingSoonMoviesFragment : Fragment() {
             Log.d(TAG, "bind: ${comingSoon.image}")
             binding.backgroundImageView.load(comingSoon.image)
             binding.releaseStateTv.text = comingSoon.showTime
+            binding.posterIv.setOnClickListener {
+                val id = comingSoon.comingSoonID
+                val showId = bundleOf("showId" to id)
+                findNavController().navigate(R.id.lastFragment, showId)
+            }
         }
-
-//        override fun onClick(v: View?) {
-//            val movie = bundleOf("nav" to position)
-//            findNavController().navigate(R.id.comingSoonMoviesFragment,position)
-//        }
     }
 
     private inner class ComingSoonAdapter(val comingSoon: List<ItemComingSoon>) :

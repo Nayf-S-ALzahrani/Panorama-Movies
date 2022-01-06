@@ -6,10 +6,13 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.myproject.R
 import com.example.myproject.databinding.Top250TvsFragmentBinding
 import com.example.myproject.databinding.Top250TvsListItemBinding
 import com.example.myproject.domain.model.top250_tvs.ItemTop250TVs
@@ -35,7 +38,7 @@ class Top250TVsFragment : Fragment() {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         binding = Top250TvsFragmentBinding.inflate(layoutInflater)
         binding.top250tvsRv.layoutManager =
             LinearLayoutManager(
@@ -66,33 +69,27 @@ class Top250TVsFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        top250TVsViewModel.state.observe(viewLifecycleOwner) {
+        top250TVsViewModel.state.observe(viewLifecycleOwner) { it ->
             when {
                 it.top250TVs.isNotEmpty() -> {
-                    binding.progressBar.visibility = View.INVISIBLE
+                    binding.animationView.visibility = View.INVISIBLE
                     binding.top250tvsRv.adapter = Top250TVsAdapter(it.top250TVs)
                     series = it.top250TVs
                     Log.d(TAG, "The popular movies list: ${state!!.top250TVs}")
                 }
                 it.isLoading -> {
                     //show progress bar
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.animationView.visibility = View.VISIBLE
                     Log.d(TAG, "Loading: ${state?.isLoading}")
                 }
                 it.error.isNotBlank() -> {
                     //toast error message
-                    val snackbar =
+                    val snackBar =
                         Snackbar.make(requireView(), "Error Connection", Snackbar.LENGTH_LONG)
-                    snackbar.setAction("Dismiss") { snackbar.dismiss() }
-                    snackbar.show()
+                    snackBar.setAction("Dismiss") { snackBar.dismiss() }
+                    snackBar.show()
                     Log.d(TAG, "Error: ${state?.error}")
                 }
-//                else -> {
-//                    val snackbar =
-//                        Snackbar.make(requireView(), "Unknown Error", Snackbar.LENGTH_LONG)
-//                    snackbar.setAction("Dismiss") { snackbar.dismiss() }
-//                    snackbar.show()
-//                    Log.d(TAG, "Unknown error ${state?.error}")}
             }
             series?.let {
                 binding.top250tvsTitle.text = it[0].title
@@ -107,6 +104,11 @@ class Top250TVsFragment : Fragment() {
         fun bind(series: ItemTop250TVs) {
             binding.posterIv.load(series.image)
             binding.rate.text = series.rating
+            binding.posterIv.setOnClickListener {
+                val id = series.top250tvsID
+                val showId = bundleOf("showId" to id)
+                findNavController().navigate(R.id.lastFragment, showId)
+            }
         }
     }
 

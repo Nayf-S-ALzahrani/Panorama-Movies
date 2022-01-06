@@ -5,10 +5,13 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.myproject.R
 import com.example.myproject.databinding.Top250ListItemBinding
 import com.example.myproject.databinding.Top250MoviesFragmentBinding
 import com.example.myproject.domain.model.top250_movies.ItemTop250
@@ -62,14 +65,14 @@ class Top250MoviesFragment : Fragment() {
         top250MoviesViewModel.state.observe(viewLifecycleOwner) {
             when {
                 it.top250.isNotEmpty() -> {
-                    binding.progressBar.visibility = View.INVISIBLE
+                    binding.animationView.visibility = View.INVISIBLE
                     binding.top250MoviesRv.adapter = Top250MoviesAdapter(it.top250)
                     movies = it.top250
                     Log.d(TAG, "The top 250 movies list: ${state!!.top250}")
                 }
                 it.isLoading -> {
                     //show progress bar
-                    binding.progressBar.visibility = View.VISIBLE
+                    binding.animationView.visibility = View.VISIBLE
                     Log.d(TAG, "Loading: ${state?.isLoading}")
                 }
                 else -> {
@@ -98,6 +101,11 @@ class Top250MoviesFragment : Fragment() {
             binding.rate.text = movie.rating
             Log.d(TAG, "Bind rating: ${movie.rating}")
             Log.d(TAG, "Bind title: ${movie.title}")
+            binding.posterIv.setOnClickListener {
+                val id = movie.top250ID
+                val showId = bundleOf("showId" to id)
+                findNavController().navigate(R.id.lastFragment, showId)
+            }
         }
     }
 

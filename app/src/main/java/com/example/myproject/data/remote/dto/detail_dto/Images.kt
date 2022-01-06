@@ -1,11 +1,10 @@
-package com.example.myproject.data.remote.dto.title_dto
+package com.example.myproject.data.remote.dto.detail_dto
 
-data class Posters(
-    val backdrops: List<Backdrop>,
+data class Images(
     val errorMessage: String,
     val fullTitle: String,
     val imDbId: String,
-    val posters: List<Poster>,
+    val items: List<Item>,
     val title: String,
     val type: String,
     val year: String

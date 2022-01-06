@@ -126,12 +126,11 @@ class HomeFragment : Fragment() {
         RecyclerView.ViewHolder(binding.root) {
         //        var position = 0
         fun bind(recentHome: ItemRecent, position: Int) {
-            binding.recentMoviesMainRv.load(recentHome.image)
             Log.d(TAG, "bind: ${recentHome.image}")
 
             binding.recentMoviesMainRv.setOnClickListener {
                 val position = bundleOf("position" to position)
-                findNavController().navigate(R.id.recentMoviesFragment)
+                findNavController().navigate(R.id.recentMoviesFragment,position)
             }
         }
     }

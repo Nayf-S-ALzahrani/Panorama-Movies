@@ -1,4 +1,4 @@
-package com.example.myproject.data.remote.dto.title_dto
+package com.example.myproject.data.remote.dto.detail_dto
 
 data class Company(
     val id: String,

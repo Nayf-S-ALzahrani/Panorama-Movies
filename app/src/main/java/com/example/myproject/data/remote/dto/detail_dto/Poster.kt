@@ -1,6 +1,6 @@
-package com.example.myproject.data.remote.dto.title_dto
+package com.example.myproject.data.remote.dto.detail_dto
 
-data class Backdrop(
+data class Poster(
     val aspectRatio: Double,
     val height: Int,
     val id: String,

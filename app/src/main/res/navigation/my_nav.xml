@@ -28,16 +28,31 @@
     <fragment
         android:id="@+id/recentMoviesFragment"
         android:name="com.example.myproject.presentation.ui.recent_movies.RecentMoviesFragment"
-        android:label="RecentMoviesFragment" />
+        android:label="RecentMoviesFragment" >
+        <argument
+            android:name="position"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_recentMoviesFragment_to_lastFragment"
+            app:destination="@id/lastFragment" />
+    </fragment>
     <fragment
         android:id="@+id/top250MoviesFragment"
         android:name="com.example.myproject.presentation.ui.top_250_movies.Top250MoviesFragment"
-        android:label="Top250MoviesFragment" />
+        android:label="Top250MoviesFragment" >
+        <action
+            android:id="@+id/action_top250MoviesFragment_to_lastFragment"
+            app:destination="@id/lastFragment" />
+    </fragment>
     <fragment
         android:id="@+id/popularMoviesFragment"
         android:name="com.example.myproject.presentation.ui.popular_movies.PopularMoviesFragment"
         android:label="popular_movies_fragment"
-        tools:layout="@layout/popular_movies_fragment" />
+        tools:layout="@layout/popular_movies_fragment" >
+        <action
+            android:id="@+id/action_popularMoviesFragment_to_lastFragment"
+            app:destination="@id/lastFragment" />
+    </fragment>
     <fragment
         android:id="@+id/comingSoonMoviesFragment"
         android:name="com.example.myproject.presentation.ui.coming_soon_movies.ComingSoonMoviesFragment"
@@ -45,9 +60,24 @@
         <argument
             android:name="position"
             app:argType="integer" />
+        <action
+            android:id="@+id/action_comingSoonMoviesFragment_to_lastFragment"
+            app:destination="@id/lastFragment" />
     </fragment>
     <fragment
         android:id="@+id/top250TVsFragment"
         android:name="com.example.myproject.presentation.ui.top_250_tvs.Top250TVsFragment"
-        android:label="Top250TVsFragment" />
+        android:label="Top250TVsFragment" >
+        <action
+            android:id="@+id/action_top250TVsFragment_to_lastFragment"
+            app:destination="@id/lastFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/lastFragment"
+        android:name="com.example.myproject.presentation.ui.last_fragment.LastFragment"
+        android:label="LastFragment" >
+        <argument
+            android:name="showId"
+            app:argType="string" />
+    </fragment>
 </navigation>

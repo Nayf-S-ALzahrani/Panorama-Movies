@@ -16,6 +16,12 @@ import javax.inject.Singleton
 @InstallIn(SingletonComponent::class)
 object AppModule {
 
+//    @Provides
+//    @Singleton
+//    fun provideCache(){
+//        return Cache.initialize(context = applicationContext)
+//    }
+
 
     @Provides
     @Singleton

@@ -23,19 +23,31 @@
 
             <ImageView
                 android:id="@+id/backgroundImageView"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
                 android:angle="90"
                 android:foreground="@drawable/style"
                 android:requiresFadingEdge="vertical"
                 android:scaleType="centerCrop"
-                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintBottom_toBottomOf="@+id/genres_tv"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintHorizontal_bias="1.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.0"
                 app:srcCompat="@drawable/ic_launcher_foreground" />
+
+            <!--            <androidx.recyclerview.widget.RecyclerView-->
+            <!--                android:id="@+id/recent_movies_recyclerView"-->
+            <!--                android:layout_width="match_parent"-->
+            <!--                android:layout_height="wrap_content"-->
+            <!--                android:layout_marginBottom="4dp"-->
+            <!--                app:layout_constraintBottom_toTopOf=""-->
+            <!--                app:layout_constraintEnd_toEndOf="parent"-->
+            <!--                app:layout_constraintHorizontal_bias="0.0"-->
+            <!--                app:layout_constraintStart_toStartOf="parent"-->
+            <!--                app:layout_constraintTop_toBottomOf="@id/genres_tv"-->
+            <!--                />-->
+
 
             <com.google.android.material.imageview.ShapeableImageView
                 android:id="@+id/poster_iv"
@@ -53,7 +65,7 @@
                 app:layout_constraintHorizontal_bias="0.496"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.174"
+                app:layout_constraintVertical_bias="0.192"
                 app:shapeAppearanceOverlay="@style/roundedCorner1"
                 app:strokeColor="#D8FFFFFF"
                 app:strokeWidth="5dp" />
@@ -63,7 +75,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:fontFamily="@font/chonburi"
+                android:fontFamily="@font/playfair_display_sc"
                 android:gravity="center|top"
                 android:textColor="#272F4B"
                 android:textSize="24sp"
@@ -78,16 +90,16 @@
                 android:id="@+id/age_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/chonburi"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/playfair_display"
                 android:gravity="center|top"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.758"
+                app:layout_constraintHorizontal_bias="0.62"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_tv"
+                app:layout_constraintTop_toBottomOf="@+id/stars_tv"
                 tools:ignore="MissingConstraints"
                 tools:text="Age" />
 
@@ -95,16 +107,16 @@
                 android:id="@+id/releaseState_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="24dp"
-                android:fontFamily="@font/chonburi"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/playfair_display"
                 android:gravity="center|top"
                 android:textColor="@color/black"
-                android:textSize="16sp"
+                android:textSize="14sp"
                 android:textStyle="bold"
-                app:layout_constraintEnd_toStartOf="@+id/age_tv"
-                app:layout_constraintHorizontal_bias="0.542"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.378"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/title_tv"
+                app:layout_constraintTop_toBottomOf="@+id/stars_tv"
                 tools:ignore="MissingConstraints"
                 tools:text="Release State" />
 
@@ -113,7 +125,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
-                android:fontFamily="@font/chonburi"
+                android:fontFamily="@font/playfair_display"
                 android:gravity="center|top"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -121,16 +133,16 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/releaseState_tv"
+                app:layout_constraintTop_toBottomOf="@+id/title_tv"
                 tools:ignore="MissingConstraints"
                 tools:text="Genres" />
 
             <TextView
-                android:id="@+id/genres_list_tv"
-                android:layout_width="wrap_content"
+                android:id="@+id/stars_tv"
+                android:layout_width="305dp"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/chonburi"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/playfair_display"
                 android:gravity="center|top"
                 android:textColor="@color/black"
                 android:textSize="16sp"
@@ -140,40 +152,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/genres_tv"
                 tools:ignore="MissingConstraints"
-                tools:text="Genres List" />
-
-            <TextView
-                android:id="@+id/stars_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/chonburi"
-                android:gravity="center|top"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/genres_list_tv"
-                tools:ignore="MissingConstraints"
                 tools:text="Stars" />
-
-            <TextView
-                android:id="@+id/stars_list_tv"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:fontFamily="@font/chonburi"
-                android:gravity="center|top"
-                android:textColor="@color/black"
-                android:textSize="16sp"
-                android:textStyle="bold"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stars_tv"
-                tools:ignore="MissingConstraints"
-                tools:text="Stars List" />
 
             <View
                 android:id="@+id/view2"
@@ -182,28 +161,86 @@
                 android:layout_marginTop="20dp"
                 android:background="#9F000207"
                 android:backgroundTint="#9F000207"
-                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.497"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/stars_list_tv" />
+                app:layout_constraintTop_toBottomOf="@+id/age_tv" />
 
             <TextView
                 android:id="@+id/describe_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:fontFamily="@font/chonburi"
-                android:gravity="center|top"
+                android:layout_marginStart="5dp"
+                android:fontFamily="@font/playfair_display"
+                android:foregroundGravity="center"
+                android:gravity="center"
+                android:padding="5dp"
+                android:textColor="@color/black"
+                android:textSize="14sp"
+                android:textStyle="normal|bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.492"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/text"
+                tools:ignore="MissingConstraints"
+                tools:text="Describe" />
+
+            <TextView
+                android:id="@+id/text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginBottom="8dp"
+                android:fontFamily="@font/playfair_display_sc"
+                android:padding="5dp"
+                android:text="@string/description"
                 android:textColor="@color/black"
                 android:textSize="16sp"
                 android:textStyle="bold"
+                app:layout_constraintBottom_toTopOf="@+id/describe_tv"
                 app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintHorizontal_bias="0.03"
                 app:layout_constraintStart_toStartOf="parent"
-                tools:ignore="MissingConstraints"
-                tools:layout_editor_absoluteY="718dp"
-                tools:text="Describe" />
+                app:layout_constraintTop_toBottomOf="@+id/view2"
+                app:layout_constraintVertical_bias="1.0"
+                tools:ignore="MissingConstraints" />
 
+            <com.airbnb.lottie.LottieAnimationView
+                android:id="@+id/animationView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.399"
+                app:lottie_autoPlay="true"
+                app:lottie_loop="true"
+                app:lottie_rawRes="@raw/bars_moving"
+                app:lottie_url="REPLACE_JSON_URL" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/card"
+                android:layout_width="150dp"
+                android:layout_height="100dp"
+                android:layout_marginStart="5dp"
+                android:layout_marginEnd="5dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/describe_tv">
+
+                <VideoView
+                    android:id="@+id/videoView"
+                    android:layout_width="150dp"
+                    android:layout_height="150dp"
+                    app:layout_constraintBottom_toBottomOf="@id/card"
+                    app:layout_constraintEnd_toEndOf="@id/card"
+                    app:layout_constraintStart_toStartOf="@id/card"
+                    app:layout_constraintTop_toTopOf="@id/card" />
+
+            </androidx.cardview.widget.CardView>
         </androidx.constraintlayout.widget.ConstraintLayout>
     </androidx.core.widget.NestedScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
