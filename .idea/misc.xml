@@ -35,16 +35,18 @@
         <entry key="app/src/main/res/drawable/top250_tvs_background.xml" value="0.14722222222222223" />
         <entry key="app/src/main/res/drawable/until_i_find_icon.xml" value="0.20925925925925926" />
         <entry key="app/src/main/res/layout-v31/fragment_first.xml" value="0.28116213683223995" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/a.xml" value="0.2212962962962963" />
+        <entry key="app/src/main/res/layout/activity_login.xml" value="0.10462962962962963" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="1.0" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_splash_screen2.xml" value="0.22592592592592592" />
-        <entry key="app/src/main/res/layout/coming_soon_list_item.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/coming_soon_movies_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/coming_soon_list_item.xml" value="0.10045171400645043" />
+        <entry key="app/src/main/res/layout/coming_soon_movies_fragment.xml" value="0.375" />
         <entry key="app/src/main/res/layout/coming_soon_recycleview.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/coming_soon_shrimmer_recyclerview.xml" value="0.25104166666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/home.xml" value="0.33565459610027853" />
-        <entry key="app/src/main/res/layout/last_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/last_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/last_list_fragment.xml" value="0.30462962962962964" />
         <entry key="app/src/main/res/layout/movies_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/movies_list_item.xml" value="0.1" />

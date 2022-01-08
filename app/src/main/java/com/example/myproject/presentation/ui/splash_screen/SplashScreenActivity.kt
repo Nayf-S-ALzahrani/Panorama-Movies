@@ -1,15 +1,13 @@
-package com.example.myproject
+package com.example.myproject.presentation.ui.splash_screen
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import android.graphics.drawable.Icon
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.widget.ImageView
+import com.example.myproject.R
 import com.example.myproject.presentation.MainActivity
-import kotlinx.coroutines.delay
 
 class SplashScreenActivity : AppCompatActivity() {
     @SuppressLint("ResourceType")
@@ -23,7 +21,7 @@ class SplashScreenActivity : AppCompatActivity() {
 //           icon_app.alpha = 1f
 //           icon_app.animate().setDuration(1000)
 //               .alpha(0f).withEndAction {
-               val i = Intent(this,MainActivity::class.java)
+               val i = Intent(this, MainActivity::class.java)
                startActivity(i)
 //               overridePendingTransition(android.R.anim.fade_in,android.R.anim.fade_out)
                finish()

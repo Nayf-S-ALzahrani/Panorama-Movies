@@ -6,6 +6,7 @@ import com.example.myproject.data.remote.dto.recent_dto.RecentMoviesDTO
 import com.example.myproject.data.remote.dto.detail_dto.ShowDetailDTO
 import com.example.myproject.data.remote.dto.top250_dto.Top250MoviesDTO
 import com.example.myproject.data.remote.dto.top250_tvs_dto.Top250TVsDTO
+import com.example.myproject.data.remote.dto.trailer_dto.TrailerDTO
 import retrofit2.Response
 import retrofit2.http.GET
 import retrofit2.http.Path
@@ -17,8 +18,8 @@ interface ImdbApi {
     @GET("/en/API/InTheaters/k_09ko5ajr")
     suspend fun getRecentMovies(): Response<RecentMoviesDTO>
 
-//    @GET("/en/API/YouTubeTrailer/k_5lbkeqi2")
-//    suspend fun getTrailer(@Path("Id") id: String):Response<Trailer>
+    @GET("/en/API/YouTubeTrailer/k_09ko5ajr")
+    suspend fun getTrailer(@Path("id")trailer:String): TrailerDTO
 
     @GET("/en/API/Top250Movies/k_09ko5ajr")
     suspend fun getTop250Movies():Response<Top250MoviesDTO>

@@ -98,5 +98,10 @@ dependencies {
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
+    implementation 'bg.devlabs:fullscreen-video-view:1.2.0'
+
+
+
+
 
 }

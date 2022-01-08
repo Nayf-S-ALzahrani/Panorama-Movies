@@ -1,6 +1,5 @@
 package com.example.myproject.data.remote.dto.trailer_dto
 
-import com.google.gson.annotations.SerializedName
 
 data class TrailerDTO(
     val errorMessage: String,
@@ -9,7 +8,6 @@ data class TrailerDTO(
     val title: String,
     val type: String,
     val videoId: String,
-    @SerializedName("videoUrl")
-    val trailer: String,
+    val videoUrl: String,
     val year: String
 )

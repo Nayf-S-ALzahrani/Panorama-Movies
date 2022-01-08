@@ -108,7 +108,8 @@ class ComingSoonMoviesFragment : Fragment() {
             binding.titleTv.text = comingSoon.title
             binding.posterIv.load(comingSoon.image)
             Log.d(TAG, "bind: ${comingSoon.image}")
-            binding.backgroundImageView.load(comingSoon.image)
+//            binding.backgroundImageView.load(comingSoon.image)
+            binding.genresTv.text = comingSoon.genres
             binding.releaseStateTv.text = comingSoon.showTime
             binding.posterIv.setOnClickListener {
                 val id = comingSoon.comingSoonID

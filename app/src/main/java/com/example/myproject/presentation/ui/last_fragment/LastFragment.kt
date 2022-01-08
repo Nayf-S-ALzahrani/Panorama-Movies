@@ -1,5 +1,7 @@
 package com.example.myproject.presentation.ui.last_fragment
 
+import android.media.AudioAttributes
+import android.media.MediaPlayer
 import android.net.Uri
 import android.os.Bundle
 import android.support.v4.media.session.MediaControllerCompat.setMediaController
@@ -8,12 +10,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.webkit.URLUtil
 import android.widget.MediaController
+import android.widget.VideoView
 import androidx.core.net.toUri
 import androidx.fragment.app.viewModels
+import bg.devlabs.fullscreenvideoview.listener.FullscreenVideoViewException
+import bg.devlabs.fullscreenvideoview.listener.OnErrorListener
 import coil.load
 import coil.loadAny
 import com.example.myproject.databinding.LastFragmentBinding
+import com.example.myproject.domain.model.detail.ShowDetail
 import com.example.myproject.presentation.show_detail.ShowDetailViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
@@ -33,6 +40,7 @@ class LastFragment : Fragment() {
     ): View {
         binding = LastFragmentBinding.inflate(layoutInflater)
         return binding.root
+
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -51,17 +59,24 @@ class LastFragment : Fragment() {
                     binding.genresTv.text = showDetails.show.genres
                     binding.releaseStateTv.text = showDetails.show.time
                     binding.starsTv.text = showDetails.show.stars
-//binding.posterIv.load(showDetails.show.trailer?.thumbnailUrl)
-                    Log.d(TAG, "onViewCreated: ${showDetails.show.trailer?.linkEmbed}")
-                    binding.videoView.apply {
-                        val uri = Uri.parse(showDetails.show.trailer!!.linkEmbed)
-                        setVideoURI(uri)
-                        setMediaController(MediaController(requireContext()))
-                        Log.d(TAG, "onViewCreated: ${showDetails.show.trailer.linkEmbed}")
-                        requestFocus()
-                        start()
-                    }
-                    Log.d(TAG, "The detail: ${showDetails.show}")
+
+                    //                    binding.videoView.apply {
+//                        val videoUrl = "https://clips.vorwaerts-gmbh.de/VfE_html5.mp4"
+//
+//                        videoUrl(videoUrl).addOnErrorListener(object : OnErrorListener {
+//                            override fun onError(exception: FullscreenVideoViewException?) {
+//                                Log.d(TAG, "onError: ${exception?.message}")                            }
+//                        })
+//                        enableAutoStart()
+
+//                        val uri = Uri.parse(showDetails.show.trailer!!.linkEmbed)
+//                        setVideoPath("${showDetails.show.trailer?.linkEmbed}.mp4")
+//
+//                        setMediaController(MediaController(requireContext()))
+//                        Log.d(TAG, "onViewCreated: ${showDetails.show.trailer?.linkEmbed}")
+//                        requestFocus()
+//                        start()
+//                    Log.d(TAG, "The detail: ${showDetails.show}")
                 }
                 showDetails.isLoading -> {
                     //show progress bar
