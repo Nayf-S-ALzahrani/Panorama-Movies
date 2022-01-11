@@ -3,12 +3,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/my_nav"
-    app:startDestination="@id/firstFragment">
+    app:startDestination="@id/homeFragment">
     <fragment
-        android:id="@+id/firstFragment"
+        android:id="@+id/homeFragment"
         android:name="com.example.myproject.presentation.ui.home_fragment.HomeFragment"
-        android:label="fragment_first"
-        tools:layout="@layout/fragment_first" >
+        android:label="Home"
+        tools:layout="@layout/fragment_first">
         <action
             android:id="@+id/action_firstFragment2_to_theaterMoviesFragment"
             app:destination="@id/recentMoviesFragment" />
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/recentMoviesFragment"
         android:name="com.example.myproject.presentation.ui.recent_movies.RecentMoviesFragment"
-        android:label="RecentMoviesFragment" >
+        android:label="Movies showing now">
         <argument
             android:name="position"
             app:argType="integer" />
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/top250MoviesFragment"
         android:name="com.example.myproject.presentation.ui.top_250_movies.Top250MoviesFragment"
-        android:label="Top250MoviesFragment" >
+        android:label="Top 250 movies">
         <action
             android:id="@+id/action_top250MoviesFragment_to_lastFragment"
             app:destination="@id/lastFragment" />
@@ -47,8 +47,8 @@
     <fragment
         android:id="@+id/popularMoviesFragment"
         android:name="com.example.myproject.presentation.ui.popular_movies.PopularMoviesFragment"
-        android:label="popular_movies_fragment"
-        tools:layout="@layout/popular_movies_fragment" >
+        android:label="Popular movies"
+        tools:layout="@layout/popular_movies_fragment">
         <action
             android:id="@+id/action_popularMoviesFragment_to_lastFragment"
             app:destination="@id/lastFragment" />
@@ -56,7 +56,7 @@
     <fragment
         android:id="@+id/comingSoonMoviesFragment"
         android:name="com.example.myproject.presentation.ui.coming_soon_movies.ComingSoonMoviesFragment"
-        android:label="ComingSoonMoviesFragment" >
+        android:label="Coming soon">
         <argument
             android:name="position"
             app:argType="integer" />
@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/top250TVsFragment"
         android:name="com.example.myproject.presentation.ui.top_250_tvs.Top250TVsFragment"
-        android:label="Top250TVsFragment" >
+        android:label="Top 250 Series">
         <action
             android:id="@+id/action_top250TVsFragment_to_lastFragment"
             app:destination="@id/lastFragment" />
@@ -75,9 +75,31 @@
     <fragment
         android:id="@+id/lastFragment"
         android:name="com.example.myproject.presentation.ui.last_fragment.LastFragment"
-        android:label="LastFragment" >
+        android:label="The details">
         <argument
             android:name="showId"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/registerFragment"
+        android:name="com.example.myproject.presentation.ui.authentication.RegisterFragment"
+        android:label="Registeration">
+        <action
+            android:id="@+id/action_registerFragment_to_signInFragment"
+            app:destination="@id/signInFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/signInFragment"
+        android:name="com.example.myproject.presentation.ui.authentication.SignInFragment"
+        android:label="Signin"
+        tools:layout="@layout/signin_fragment">
+        <action
+            android:id="@+id/action_signInFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.myproject.presentation.ui.authentication.ProfileFragment"
+        android:label="profile_fragment"
+        tools:layout="@layout/profile_fragment" />
 </navigation>

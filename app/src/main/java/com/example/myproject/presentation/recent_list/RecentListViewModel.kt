@@ -1,10 +1,8 @@
 package com.example.myproject.presentation.recent_list
 
 import android.util.Log
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import androidx.lifecycle.*
+import com.example.myproject.common.Constants
 import com.example.myproject.common.Resource
 import com.example.myproject.domain.use_case.get_recent.GetRecentMoviesUseCase
 import com.example.myproject.presentation.top250_list.Top250Value
@@ -17,14 +15,20 @@ private const val TAG = "RecentListViewModel"
 
 @HiltViewModel
 class RecentListViewModel @Inject constructor(
-    private val getRecentMoviesUseCase: GetRecentMoviesUseCase
+    private val getRecentMoviesUseCase: GetRecentMoviesUseCase,
+    savedStateHandle: SavedStateHandle
 ) : ViewModel() {
 
     private val _state = MutableLiveData<RecentValue>()
     val state: LiveData<RecentValue> = _state
 
+    var position = 0
+
     init {
         getRecent()
+        savedStateHandle.get<Int>(Constants.POSITION)?.let { sentPosition ->
+            position = sentPosition
+        }
     }
 
     private fun getRecent() {

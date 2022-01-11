@@ -39,10 +39,6 @@ class ComingSoonMoviesFragment : Fragment() {
     private lateinit var binding: ComingSoonMoviesFragmentBinding
     val state by lazy { comingSoonViewModel.state.value }
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -101,10 +97,10 @@ class ComingSoonMoviesFragment : Fragment() {
     private inner class ComingSoonHolder(val binding: ComingSoonListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
         //        ,View.OnClickListener {
-        lateinit var comingSoon: ItemComingSoon
+//        lateinit var comingSoon: ItemComingSoon
 
         fun bind(comingSoon: ItemComingSoon) {
-            this.comingSoon = comingSoon
+//            this.comingSoon = comingSoon
             binding.titleTv.text = comingSoon.title
             binding.posterIv.load(comingSoon.image)
             Log.d(TAG, "bind: ${comingSoon.image}")

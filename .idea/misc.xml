@@ -4,6 +4,9 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="../../../../layout/custom_preview.xml" value="0.10885416666666667" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_action_name.xml" value="0.22685185185185186" />
+        <entry key="app/src/main/res/drawable-anydpi/ic_signout.xml" value="0.2657407407407407" />
+        <entry key="app/src/main/res/drawable-mdpi/menu.xml" value="0.2657407407407407" />
         <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.22685185185185186" />
         <entry key="app/src/main/res/drawable/background_gradient.xml" value="0.13697916666666668" />
         <entry key="app/src/main/res/drawable/circle.xml" value="0.17592592592592593" />
@@ -37,15 +40,16 @@
         <entry key="app/src/main/res/layout-v31/fragment_first.xml" value="0.28116213683223995" />
         <entry key="app/src/main/res/layout/a.xml" value="0.2212962962962963" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.10462962962962963" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="1.0" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_splash_screen2.xml" value="0.22592592592592592" />
         <entry key="app/src/main/res/layout/coming_soon_list_item.xml" value="0.10045171400645043" />
         <entry key="app/src/main/res/layout/coming_soon_movies_fragment.xml" value="0.375" />
-        <entry key="app/src/main/res/layout/coming_soon_recycleview.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/coming_soon_recycleview.xml" value="0.2459016393442623" />
         <entry key="app/src/main/res/layout/coming_soon_shrimmer_recyclerview.xml" value="0.25104166666666666" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/home.xml" value="0.33565459610027853" />
+        <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3098958333333333" />
+        <entry key="app/src/main/res/layout/home.xml" value="0.2900552486187845" />
         <entry key="app/src/main/res/layout/last_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/last_list_fragment.xml" value="0.30462962962962964" />
         <entry key="app/src/main/res/layout/movies_fragment.xml" value="0.1" />
@@ -54,10 +58,13 @@
         <entry key="app/src/main/res/layout/oscar_movies_fragment.xml" value="0.308441348487975" />
         <entry key="app/src/main/res/layout/popular_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/popular_movies_fragment.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/recent_list_item.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/recent_list_item.xml" value="0.1" />
         <entry key="app/src/main/res/layout/recent_movies_fragment.xml" value="0.2177121771217712" />
         <entry key="app/src/main/res/layout/recent_recyclerview.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/register_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/rr.xml" value="0.22135416666666666" />
+        <entry key="app/src/main/res/layout/signin_fragment.xml" value="0.12842027788923133" />
         <entry key="app/src/main/res/layout/theater_list_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/theater_movies_fragment.xml" value="0.23985239852398524" />
         <entry key="app/src/main/res/layout/top250_tvs_fragment.xml" value="0.2953125" />
@@ -68,7 +75,8 @@
         <entry key="app/src/main/res/layout/top_250_movies_list_item.xml" value="0.10913433041104827" />
         <entry key="app/src/main/res/layout/top_250_tvs_list_item.xml" value="0.1100839138804016" />
         <entry key="app/src/main/res/menu/back.xml" value="0.335" />
-        <entry key="app/src/main/res/menu/menu.xml" value="0.335" />
+        <entry key="app/src/main/res/menu/drawer_menu.xml" value="0.1" />
+        <entry key="app/src/main/res/menu/menu.xml" value="0.25" />
       </map>
     </option>
   </component>

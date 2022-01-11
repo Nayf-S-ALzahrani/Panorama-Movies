@@ -2,10 +2,9 @@ package com.example.myproject.presentation.ui.home_fragment
 
 import android.os.Bundle
 import android.util.Log
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
@@ -20,6 +19,7 @@ import com.example.myproject.domain.model.coming_soon_movies.ItemComingSoon
 import com.example.myproject.domain.model.recent_movies.ItemRecent
 import com.example.myproject.presentation.home_list.HomeListViewModel
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "HomeFragment"
@@ -29,6 +29,24 @@ class HomeFragment : Fragment() {
 
     private val homeViewModel by viewModels<HomeListViewModel>()
     private lateinit var bindingHome: HomeBinding
+    private lateinit var auth: FirebaseAuth
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        auth = FirebaseAuth.getInstance()
+    }
+
+//use repo (signin)
+    override fun onResume() {
+        super.onResume()
+        if (auth.currentUser == null)
+        {
+            val navController = findNavController()
+            navController.navigate(R.id.signInFragment)
+            Log.d(TAG, "onCreate: work")
+        }
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -80,6 +98,7 @@ class HomeFragment : Fragment() {
                 }
             }
         }
+
         homeViewModel.recentHome.observe(viewLifecycleOwner) {
             when {
                 it.recent.isNotEmpty() -> {
@@ -122,15 +141,19 @@ class HomeFragment : Fragment() {
         }
     }
 
+    //-----------------------Recent Holder and adapter-------------------------//
     private inner class RecentHomeHolder(val binding: RecentRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
         //        var position = 0
+        var itemPosition: Int? = null
         fun bind(recentHome: ItemRecent, position: Int) {
-            Log.d(TAG, "bind: ${recentHome.image}")
+            itemPosition = position
 
+            Log.d(TAG, "bind: ${recentHome.image}")
+            binding.recentMoviesMainRv.load(recentHome.image)
             binding.recentMoviesMainRv.setOnClickListener {
-                val position = bundleOf("position" to position)
-                findNavController().navigate(R.id.recentMoviesFragment,position)
+                val inPosition = bundleOf("position" to position)
+                findNavController().navigate(R.id.recentMoviesFragment, inPosition)
             }
         }
     }
@@ -165,8 +188,8 @@ class HomeFragment : Fragment() {
             Log.d(TAG, "bind: ${comingSoonHome.image}")
 
             binding.comingSoonMoviesMainRv.setOnClickListener {
-                val position = bundleOf("position" to position)
-                findNavController().navigate(R.id.comingSoonMoviesFragment, position)
+                val inPosition = bundleOf("position" to position)
+                findNavController().navigate(R.id.comingSoonMoviesFragment, inPosition)
             }
         }
     }

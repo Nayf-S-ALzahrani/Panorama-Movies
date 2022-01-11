@@ -15,9 +15,6 @@
         android:theme="@style/Theme.MyProject"
         android:usesCleartextTraffic="true">
         <activity
-            android:name=".presentation.LoginActivity"
-            android:exported="true" />
-        <activity
             android:name=".presentation.ui.splash_screen.SplashScreenActivity"
             android:exported="true"
             android:theme="@style/SplashScreenTheme">

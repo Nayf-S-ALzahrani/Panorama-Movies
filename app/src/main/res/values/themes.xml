@@ -1,7 +1,7 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
     <!-- Base application theme. -->
-    <style name="Theme.MyProject" parent="Theme.MaterialComponents.DayNight.NoActionBar.Bridge">
-        <item name="colorPrimary">#FFD6D8</item>
+    <style name="Theme.MyProject" parent="Theme.MaterialComponents.DayNight">
+        <item name="colorPrimary">#FFFFFF</item>
         <item name="colorPrimaryVariant">#FFFFFF</item>
         <item name="colorOnPrimary">#121212</item>
 <!--        <item name="colorSecondary">@color/teal_200</item>-->
