@@ -21,7 +21,7 @@
     <string name="confirm_password">Confirm password:</string>
     <string name="repassword">Reassword</string>
     <string name="register">Register</string>
-    <string name="already_registered_login">Already registered login</string>
+    <string name="already_registered_login">Already registered.login</string>
     <string name="first_name">FirstName:</string>
     <string name="last_name">Lastname:</string>
     <string name="firstname">Firstname</string>
@@ -35,5 +35,9 @@
     <string name="home">Home</string>
     <string name="signout">Signout</string>
     <string name="save">Save</string>
+    <string name="nickname">nickname</string>
+    <string name="enter_your_nickname">Enter your nickname</string>
+    <string name="delete">Delete</string>
+    <string name="remember_me">Remember me</string>
 
 </resources>

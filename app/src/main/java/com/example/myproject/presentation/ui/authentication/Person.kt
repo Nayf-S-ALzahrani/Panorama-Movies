@@ -1,7 +1,9 @@
 package com.example.myproject.presentation.ui.authentication
 
+import android.widget.ImageView
+
 data class Person(
-    var firstName:String,
-    var lastName:String,
-    var age:String
+    var id : String = "",
+    var nickname:String ="",
+    var imageProfile:String=""
 )

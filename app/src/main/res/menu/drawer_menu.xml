@@ -6,7 +6,7 @@
         android:icon="@drawable/ic_profile"
         android:title="@string/profile" />
     <item
-        android:id="@+id/signOut"
+        android:id="@+id/signInFragment"
         android:icon="@drawable/ic_signout"
         android:title="@string/signout" />
     <item

@@ -6,6 +6,19 @@
     android:layout_height="match_parent"
     tools:context=".presentation.ui.authentication.ProfileFragment">
 
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/ic_launcher_foreground"
+        app:layout_constraintBottom_toTopOf="@+id/edittext_nickname"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.65" />
+
     <TextView
         android:id="@+id/firstname_textview"
         android:layout_width="wrap_content"
@@ -13,20 +26,20 @@
         android:layout_marginStart="60dp"
         android:layout_marginTop="268dp"
         android:gravity="center"
-        android:text="@string/first_name"
+        android:text="@string/nickname"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/edittext_firstname"
+        android:id="@+id/edittext_nickname"
         android:layout_width="214dp"
         android:layout_height="41dp"
         android:layout_marginStart="5dp"
         android:layout_marginTop="268dp"
         android:layout_marginEnd="56dp"
-        android:hint="@string/enter_first_name"
+        android:hint="@string/enter_your_nickname"
         android:inputType="textEmailAddress"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -35,63 +48,63 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:ignore="Autofill" />
 
-    <TextView
-        android:id="@+id/lastname_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="41dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="20dp"
-        android:gravity="center"
-        android:text="@string/last_name"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/firstname_textview" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/lastname_textview"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="41dp"-->
+    <!--        android:layout_marginStart="60dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="@string/last_name"-->
+    <!--        android:textSize="16sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/firstname_textview" />-->
 
-    <EditText
-        android:id="@+id/edittext_lastname"
-        android:layout_width="214dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="20dp"
-        android:layout_marginEnd="56dp"
-        android:hint="@string/enter_last_name"
-        android:inputType="textEmailAddress"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.404"
-        app:layout_constraintStart_toEndOf="@+id/lastname_textview"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_firstname"
-        tools:ignore="Autofill" />
+    <!--    <EditText-->
+    <!--        android:id="@+id/edittext_lastname"-->
+    <!--        android:layout_width="214dp"-->
+    <!--        android:layout_height="41dp"-->
+    <!--        android:layout_marginStart="5dp"-->
+    <!--        android:layout_marginTop="20dp"-->
+    <!--        android:layout_marginEnd="56dp"-->
+    <!--        android:hint="@string/enter_last_name"-->
+    <!--        android:inputType="textEmailAddress"-->
+    <!--        android:textSize="16sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.404"-->
+    <!--        app:layout_constraintStart_toEndOf="@+id/lastname_textview"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/edittext_firstname"-->
+    <!--        tools:ignore="Autofill" />-->
 
-    <TextView
-        android:id="@+id/age_textview"
-        android:layout_width="wrap_content"
-        android:layout_height="41dp"
-        android:layout_marginStart="60dp"
-        android:layout_marginTop="16dp"
-        android:gravity="center"
-        android:text="@string/age"
-        android:textSize="16sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastname_textview"
-        tools:ignore="TextViewEdits" />
+    <!--    <TextView-->
+    <!--        android:id="@+id/age_textview"-->
+    <!--        android:layout_width="wrap_content"-->
+    <!--        android:layout_height="41dp"-->
+    <!--        android:layout_marginStart="60dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:gravity="center"-->
+    <!--        android:text="@string/age"-->
+    <!--        android:textSize="16sp"-->
+    <!--        android:textStyle="bold"-->
+    <!--        app:layout_constraintStart_toStartOf="parent"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/lastname_textview"-->
+    <!--        tools:ignore="TextViewEdits" />-->
 
-    <EditText
-        android:id="@+id/edittext_age"
-        android:layout_width="255dp"
-        android:layout_height="41dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginEnd="40dp"
-        android:hint="@string/enter_your_age"
-        android:inputType="text"
-        android:textSize="16sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toEndOf="@id/age_textview"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_lastname" />
+    <!--    <EditText-->
+    <!--        android:id="@+id/edittext_age"-->
+    <!--        android:layout_width="255dp"-->
+    <!--        android:layout_height="41dp"-->
+    <!--        android:layout_marginStart="5dp"-->
+    <!--        android:layout_marginTop="16dp"-->
+    <!--        android:layout_marginEnd="40dp"-->
+    <!--        android:hint="@string/enter_your_age"-->
+    <!--        android:inputType="text"-->
+    <!--        android:textSize="16sp"-->
+    <!--        app:layout_constraintEnd_toEndOf="parent"-->
+    <!--        app:layout_constraintHorizontal_bias="0.0"-->
+    <!--        app:layout_constraintStart_toEndOf="@id/age_textview"-->
+    <!--        app:layout_constraintTop_toBottomOf="@+id/edittext_lastname" />-->
 
     <Button
         android:id="@+id/save"
@@ -101,9 +114,51 @@
         android:backgroundTint="#69F0AE"
         android:text="@string/save"
         android:textAllCaps="false"
+        android:textColor="#795548"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edittext_age" />
+        app:layout_constraintTop_toBottomOf="@+id/edittext_nickname" />
+
+    <Button
+        android:id="@+id/update_profile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="168dp"
+        android:backgroundTint="#69F0AE"
+        android:text="Update profile"
+        android:textAllCaps="false"
+        android:textColor="#795548"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/edittext_nickname" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="40dp"
+        tools:text="TextView"
+        app:layout_constraintBottom_toTopOf="@+id/update_profile"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <Button
+        android:id="@+id/delete"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:backgroundTint="#ED3333"
+        android:text="Delete account"
+        android:textAllCaps="false"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/update_profile"
+        app:layout_constraintVertical_bias="0.183" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

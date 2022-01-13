@@ -100,6 +100,6 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.myproject.presentation.ui.authentication.ProfileFragment"
-        android:label="profile_fragment"
+        android:label="Profile personly"
         tools:layout="@layout/profile_fragment" />
 </navigation>
