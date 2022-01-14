@@ -50,7 +50,9 @@ class ProfileFragment : Fragment() {
         imageProfile = it
         binding.imageView3.setImageURI(it)
     }
+
     private val dataBase = FirebaseFirestore.getInstance()
+
     override fun onStart() {
         super.onStart()
         val currentUser = auth.currentUser

@@ -12,6 +12,7 @@ import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
 import com.example.myproject.R
 import com.example.myproject.databinding.ActivityMainBinding
+import com.example.myproject.presentation.ui.IOnBackPressed
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
@@ -31,6 +32,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         connectView()
         setupDrawer()
         drawerClicks()
@@ -60,7 +62,7 @@ class MainActivity : AppCompatActivity() {
     // use repo (signout)
     override fun onStop() {
         super.onStop()
-        //Firebase.auth.signOut()
+        Firebase.auth.signOut()
     }
 
     private fun drawerClicks() {
@@ -89,5 +91,14 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+
+//    override fun onBackPressed() {
+//        val fragment =
+//            this.supportFragmentManager.findFragmentById(R.id.nav_host_fragment_container)
+//        (fragment as? IOnBackPressed)?.onBackPressed()?.not()?.let {
+//            tra
+//            super.onBackPressed()
+//        }
+//    }
 }
 
