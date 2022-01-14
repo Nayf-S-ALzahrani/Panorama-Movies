@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "659584080945",
+    "project_id": "panorama-8bfd1",
+    "storage_bucket": "panorama-8bfd1.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:659584080945:android:a15a9337a01d72accf0910",
+        "android_client_info": {
+          "package_name": "com.example.myproject"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "659584080945-57p3a3i0o4quj1lq3kj6ol7g1l6l7f1l.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAA_-Vaa3fW4AD3d6hFBDLEh0MGnOy4ZJY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "659584080945-57p3a3i0o4quj1lq3kj6ol7g1l6l7f1l.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
