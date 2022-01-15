@@ -4,6 +4,7 @@ import android.util.Log
 import com.example.myproject.domain.model.detail.ShowDetail
 
 private const val TAG = "ShowDetailDTO"
+
 data class ShowDetailDTO(
     val actorList: List<Actor>?,
     val awards: String?,
@@ -56,7 +57,8 @@ data class ShowDetailDTO(
 
 fun ShowDetailDTO.toShowDetail(): ShowDetail {
     return ShowDetail(
-        actorList = actorList,
+        starList = starList,
+        actorList = actorList?.map { it.image },
         awards = awards,
         age = contentRating,
         directors = directors,

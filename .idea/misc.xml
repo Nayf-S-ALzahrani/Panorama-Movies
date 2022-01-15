@@ -43,15 +43,15 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.24444444444444444" />
         <entry key="app/src/main/res/layout/activity_splash_screen.xml" value="0.165" />
         <entry key="app/src/main/res/layout/activity_splash_screen2.xml" value="0.22592592592592592" />
-        <entry key="app/src/main/res/layout/coming_soon_list_item.xml" value="0.10045171400645043" />
+        <entry key="app/src/main/res/layout/coming_soon_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/coming_soon_movies_fragment.xml" value="0.375" />
         <entry key="app/src/main/res/layout/coming_soon_recycleview.xml" value="0.2459016393442623" />
-        <entry key="app/src/main/res/layout/coming_soon_shrimmer_recyclerview.xml" value="0.25104166666666666" />
+        <entry key="app/src/main/res/layout/coming_soon_shrimmer_recyclerview.xml" value="0.1" />
         <entry key="app/src/main/res/layout/fragment_first.xml" value="0.25" />
         <entry key="app/src/main/res/layout/fragment_profile.xml" value="0.3098958333333333" />
         <entry key="app/src/main/res/layout/header.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/home.xml" value="0.2900552486187845" />
-        <entry key="app/src/main/res/layout/last_fragment.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/home.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/last_fragment.xml" value="0.23545706371191136" />
         <entry key="app/src/main/res/layout/last_list_fragment.xml" value="0.30462962962962964" />
         <entry key="app/src/main/res/layout/movies_fragment.xml" value="0.1" />
         <entry key="app/src/main/res/layout/movies_list_item.xml" value="0.1" />
@@ -60,12 +60,15 @@
         <entry key="app/src/main/res/layout/popular_list_item.xml" value="0.25" />
         <entry key="app/src/main/res/layout/popular_movies_fragment.xml" value="0.25" />
         <entry key="app/src/main/res/layout/profile_fragment.xml" value="0.335" />
-        <entry key="app/src/main/res/layout/recent_list_item.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/recent_movies_fragment.xml" value="0.2177121771217712" />
+        <entry key="app/src/main/res/layout/recent_list_item.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/recent_movies_fragment.xml" value="0.13801743277845557" />
         <entry key="app/src/main/res/layout/recent_recyclerview.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/register_fragment.xml" value="0.25" />
+        <entry key="app/src/main/res/layout/register_fragment.xml" value="0.375" />
         <entry key="app/src/main/res/layout/rr.xml" value="0.22135416666666666" />
         <entry key="app/src/main/res/layout/signin_fragment.xml" value="0.335" />
+        <entry key="app/src/main/res/layout/stars_image_shrimmer.xml" value="0.1388888888888889" />
+        <entry key="app/src/main/res/layout/stars_recyclerview.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/stars_shrimmer_recyclerview.xml" value="0.1388888888888889" />
         <entry key="app/src/main/res/layout/theater_list_item.xml" value="0.335" />
         <entry key="app/src/main/res/layout/theater_movies_fragment.xml" value="0.23985239852398524" />
         <entry key="app/src/main/res/layout/top250_tvs_fragment.xml" value="0.2953125" />

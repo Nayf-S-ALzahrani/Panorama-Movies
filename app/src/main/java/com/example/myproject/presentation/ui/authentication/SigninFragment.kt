@@ -49,10 +49,9 @@ class SignInFragment : Fragment() {
         return binding.root
     }
 
-
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-
         super.onViewCreated(view, savedInstanceState)
+
         val sharedPreferences: SharedPreferences =
             PreferenceManager.getDefaultSharedPreferences(context)
         val email = sharedPreferences.getString("Email", "")
@@ -88,8 +87,8 @@ class SignInFragment : Fragment() {
         val editor = sharedPreferences.edit()
         editor.putString("Email", binding.etEmailSignIn.text.toString())
         editor.putInt("Password", binding.etPasswordSignIn.text.toString().toInt())
-        editor.commit()
-        Toast.makeText(context, "Will remember you", Toast.LENGTH_SHORT).show()
+        editor.apply()
+        Toast.makeText(context, getString(R.string.remember_me_toast), Toast.LENGTH_SHORT).show()
     }
 
     fun loginUser() {
@@ -99,7 +98,7 @@ class SignInFragment : Fragment() {
         when {
             (email.isEmpty() || password.isEmpty()) -> Toast.makeText(
                 context,
-                "You must fill all fields",
+                getString(R.string.login_fill_toast),
                 Toast.LENGTH_LONG
             ).show()
 
@@ -112,7 +111,7 @@ class SignInFragment : Fragment() {
                                 binding.buttonSignIn.isEnabled = false
                                 binding.buttonSignIn.alpha = 0.5f
                                 hideKeyboard()
-                                Toast.makeText(context, "Welcome", Toast.LENGTH_LONG).show()
+                                Toast.makeText(context, getString(R.string.welcome_toast), Toast.LENGTH_LONG).show()
                                 findNavController().navigate(R.id.homeFragment)
                             } else {
                                 hideKeyboard()
@@ -135,9 +134,9 @@ class SignInFragment : Fragment() {
 
     private fun checkLoggedState() {
         if (auth.currentUser == null) {
-            Toast.makeText(context, "You are not login!", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.not_login_toast), Toast.LENGTH_SHORT).show()
         } else {
-            Toast.makeText(context, "You are logged in", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.login_toast), Toast.LENGTH_SHORT).show()
         }
     }
 

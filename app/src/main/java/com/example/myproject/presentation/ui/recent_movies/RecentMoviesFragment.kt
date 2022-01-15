@@ -49,7 +49,7 @@ class RecentMoviesFragment : Fragment() {
             LinearLayoutManager.HORIZONTAL,
             false
         )
-        binding.moviesRv.layoutManager =layoutManager
+        binding.moviesRv.layoutManager = layoutManager
         layoutManager.scrollToPosition(recentViewModel.position)
         snapHelper.attachToRecyclerView(binding.moviesRv)
 
@@ -82,14 +82,14 @@ class RecentMoviesFragment : Fragment() {
 
     private inner class RecentHolder(val binding: RecentListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-//        var postion = 0
+        //        var postion = 0
         fun bind(recent: ItemRecent, position: Int) {
 //            this.postion = postion
             binding.titleTv.text = recent.title
             binding.posterIv.load(recent.image)
             Log.d(TAG, "bind: ${recent.image}")
-            binding.backgroundImageView.load(recent.image)
             binding.releaseStateTv.text = recent.show_time
+            binding.genresTv.text = recent.genres
             binding.posterIv.setOnClickListener {
                 val id = recent.theater_id
                 val showId = bundleOf("showId" to id)
@@ -101,7 +101,8 @@ class RecentMoviesFragment : Fragment() {
     override fun onStop() {
         super.onStop()
         // save position before transl
-        recentViewModel.position = binding.moviesRv.getChildAdapterPosition(binding.moviesRv.focusedChild)
+        recentViewModel.position =
+            binding.moviesRv.getChildAdapterPosition(binding.moviesRv.focusedChild)
     }
 
     private inner class RecentAdapter(val recent: List<ItemRecent>) :

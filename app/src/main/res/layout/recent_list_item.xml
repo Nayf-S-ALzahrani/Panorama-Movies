@@ -34,26 +34,26 @@
     <!--        app:layout_constraintStart_toStartOf="parent"-->
     <!--        tools:ignore="MissingConstraints" />-->
 
-    <ImageView
-        android:id="@+id/backgroundImageView"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:angle="90"
-        android:foreground="@drawable/style"
-        android:requiresFadingEdge="vertical"
-        android:scaleType="centerCrop"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/ic_launcher_foreground" />
+<!--    <ImageView-->
+<!--        android:id="@+id/backgroundImageView"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="match_parent"-->
+<!--        android:angle="90"-->
+<!--        android:foreground="@drawable/style"-->
+<!--        android:requiresFadingEdge="vertical"-->
+<!--        android:scaleType="centerCrop"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintHorizontal_bias="0.0"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        app:layout_constraintVertical_bias="0.0"-->
+<!--        app:srcCompat="@drawable/ic_launcher_foreground" />-->
 
     <com.google.android.material.imageview.ShapeableImageView
         android:id="@+id/poster_iv"
-        android:layout_width="230dp"
-        android:layout_height="280dp"
+        android:layout_width="280dp"
+        android:layout_height="350dp"
         android:layout_marginStart="20dp"
         android:layout_marginTop="10dp"
         android:layout_marginEnd="20dp"
@@ -75,7 +75,7 @@
         android:id="@+id/title_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="16dp"
         android:fontFamily="@font/playfair_display_sc"
         android:gravity="center|top"
         android:textColor="#272F4B"
@@ -104,18 +104,20 @@
         tools:ignore="MissingConstraints"
         tools:text="Release State" />
 
-    <View
-        android:id="@+id/view2"
-        android:layout_width="170dp"
-        android:layout_height="0.5dp"
-        android:background="#9F000207"
-        android:backgroundTint="#9F000207"
-        app:layout_constraintBottom_toBottomOf="parent"
+    <TextView
+        android:id="@+id/genres_tv"
+        android:layout_width="246dp"
+        android:layout_height="74dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center|top"
+        android:textColor="#545457"
+        android:textSize="17sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/releaseState_tv"
-        app:layout_constraintVertical_bias="0.138" />
+        tools:text="genres" />
 
     <ProgressBar
         android:id="@+id/progress_bar"

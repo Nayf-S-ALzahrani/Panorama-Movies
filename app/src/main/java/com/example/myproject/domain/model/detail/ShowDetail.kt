@@ -3,7 +3,8 @@ package com.example.myproject.domain.model.detail
 import com.example.myproject.data.remote.dto.detail_dto.*
 
 data class ShowDetail(
-    val actorList: List<Actor>?,
+    val starList: List<Star>?,
+    val actorList: List<String>?,
     val awards: String?,
     val age: String?,
     val directors: String?,

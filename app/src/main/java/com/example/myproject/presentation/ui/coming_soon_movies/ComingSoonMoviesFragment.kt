@@ -43,14 +43,7 @@ class ComingSoonMoviesFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        //    position = comingSoonViewModel.position
-        //   position=arguments?.getInt(Constants.POSITION)
-//            arguments?.getInt(Constants.POSITION).let {//just for rotation
-//                comingSoonViewModel.putPosition(it!!)
-//            }
-//        position = comingSoonViewModel.getPosition()
         Log.d(TAG, "position: ${comingSoonViewModel.position}")
-
         val snapHelper: SnapHelper = LinearSnapHelper()
         binding = ComingSoonMoviesFragmentBinding.inflate(layoutInflater)
         val layoutManager = LinearLayoutManager(
