@@ -84,6 +84,10 @@ class SignInFragment : Fragment() {
             .show()
     }
 
+    fun isNameFormat(name:String?) =
+        (name.isNullOrBlank() || name.length > 25 ).not()
+
+
     fun loginUser() {
         val email = binding.etEmailSignIn.text.toString()
         val password = binding.etPasswordSignIn.text.toString()

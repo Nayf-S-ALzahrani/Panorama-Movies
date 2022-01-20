@@ -48,5 +48,15 @@
     <string name="actors">Actors:</string>
     <string name="similar">Similar:</string>
     <string name="delete_account">Delete account</string>
+    <string name="Home">Home</string>
+    <string name="movies_showing_now">Movies showing now</string>
+    <string name="top250_movies">Top 250 movies</string>
+    <string name="popular">Popular movies</string>
+    <string name="comingsoon">Coming soon</string>
+    <string name="top250_series">Top 250 Series</string>
+    <string name="thedetails">The details</string>
+    <string name="registration">Registration</string>
+    <string name="Signin">Signin</string>
+    <string name="profile_personal">Profile personal</string>
 
 </resources>

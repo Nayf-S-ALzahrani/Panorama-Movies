@@ -7,8 +7,8 @@
     <fragment
         android:id="@+id/homeFragment"
         android:name="com.example.myproject.presentation.ui.home_fragment.HomeFragment"
-        android:label="Home"
-        tools:layout="@layout/fragment_first">
+        android:label="@string/Home"
+        tools:layout="@layout/home">
         <action
             android:id="@+id/action_firstFragment2_to_theaterMoviesFragment"
             app:destination="@id/recentMoviesFragment" />
@@ -28,7 +28,7 @@
     <fragment
         android:id="@+id/recentMoviesFragment"
         android:name="com.example.myproject.presentation.ui.recent_movies.RecentMoviesFragment"
-        android:label="Movies showing now">
+        android:label="@string/movies_showing_now">
         <argument
             android:name="position"
             app:argType="integer" />
@@ -39,7 +39,7 @@
     <fragment
         android:id="@+id/top250MoviesFragment"
         android:name="com.example.myproject.presentation.ui.top_250_movies.Top250MoviesFragment"
-        android:label="Top 250 movies">
+        android:label="@string/top250_movies">
         <action
             android:id="@+id/action_top250MoviesFragment_to_lastFragment"
             app:destination="@id/lastFragment" />
@@ -47,7 +47,7 @@
     <fragment
         android:id="@+id/popularMoviesFragment"
         android:name="com.example.myproject.presentation.ui.popular_movies.PopularMoviesFragment"
-        android:label="Popular movies"
+        android:label="@string/popular"
         tools:layout="@layout/popular_movies_fragment">
         <action
             android:id="@+id/action_popularMoviesFragment_to_lastFragment"
@@ -56,7 +56,7 @@
     <fragment
         android:id="@+id/comingSoonMoviesFragment"
         android:name="com.example.myproject.presentation.ui.coming_soon_movies.ComingSoonMoviesFragment"
-        android:label="Coming soon">
+        android:label="@string/comingsoon">
         <argument
             android:name="position"
             app:argType="integer" />
@@ -67,7 +67,7 @@
     <fragment
         android:id="@+id/top250TVsFragment"
         android:name="com.example.myproject.presentation.ui.top_250_tvs.Top250TVsFragment"
-        android:label="Top 250 Series">
+        android:label="@string/top250_series">
         <action
             android:id="@+id/action_top250TVsFragment_to_lastFragment"
             app:destination="@id/lastFragment" />
@@ -75,7 +75,7 @@
     <fragment
         android:id="@+id/lastFragment"
         android:name="com.example.myproject.presentation.ui.last_fragment.LastFragment"
-        android:label="The details">
+        android:label="@string/thedetails">
         <argument
             android:name="showId"
             app:argType="string" />
@@ -83,7 +83,7 @@
     <fragment
         android:id="@+id/registerFragment"
         android:name="com.example.myproject.presentation.ui.authentication.RegisterFragment"
-        android:label="Registeration">
+        android:label="@string/registration">
         <action
             android:id="@+id/action_registerFragment_to_signInFragment"
             app:destination="@id/signInFragment" />
@@ -91,7 +91,7 @@
     <fragment
         android:id="@+id/signInFragment"
         android:name="com.example.myproject.presentation.ui.authentication.SignInFragment"
-        android:label="Signin"
+        android:label="@string/Signin"
         tools:layout="@layout/signin_fragment">
         <action
             android:id="@+id/action_signInFragment_to_homeFragment"
@@ -100,6 +100,6 @@
     <fragment
         android:id="@+id/profileFragment"
         android:name="com.example.myproject.presentation.ui.authentication.ProfileFragment"
-        android:label="Profile personly"
+        android:label="@string/profile_personal"
         tools:layout="@layout/profile_fragment" />
 </navigation>
