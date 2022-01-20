@@ -4,5 +4,5 @@ import com.google.firebase.auth.FirebaseAuth
 
 interface FirebaseAuthRepository {
 
-    suspend fun firebaseAuth(): FirebaseAuth
+
 }

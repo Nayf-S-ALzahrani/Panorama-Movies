@@ -46,5 +46,7 @@
     <string name="login_toast">You are logged in</string>
     <string name="login">.login</string>
     <string name="actors">Actors:</string>
+    <string name="similar">Similar:</string>
+    <string name="delete_account">Delete account</string>
 
 </resources>

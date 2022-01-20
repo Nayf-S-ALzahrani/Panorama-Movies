@@ -18,15 +18,10 @@ import com.example.myproject.domain.model.coming_soon_movies.ItemComingSoon
 import com.example.myproject.presentation.coming_soon_list.ComingSoonListViewModel
 import com.google.android.material.snackbar.Snackbar
 import dagger.hilt.android.AndroidEntryPoint
-import android.content.Intent.getIntent
-
-import android.content.Intent
-import android.content.Intent.getIntent
-import androidx.appcompat.view.menu.MenuView
 import androidx.core.os.bundleOf
 import androidx.navigation.fragment.findNavController
 import com.example.myproject.R
-import com.example.myproject.common.Constants
+
 
 
 private const val TAG = "ComingSoonMoviesFragment"
@@ -62,11 +57,13 @@ class ComingSoonMoviesFragment : Fragment() {
         comingSoonViewModel.state.observe(viewLifecycleOwner) {
             when {
                 it.comingSoon.isNotEmpty() -> {
+                    binding.progressBar.visibility = View.GONE
                     binding.comingSoonMoviesRv.adapter = ComingSoonAdapter(it.comingSoon)
                     Log.d(TAG, "The coming soon movies:${state?.comingSoon} ")
                 }
                 it.isLoading -> {
                     //show progress bar
+                    binding.progressBar.visibility = View.VISIBLE
                     Log.d(TAG, "Loading:${state?.isLoading}")
                 }
                 else -> {

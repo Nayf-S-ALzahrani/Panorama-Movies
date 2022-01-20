@@ -22,6 +22,24 @@
         tools:ignore="MissingConstraints" />
 
 
+<!--    <com.google.android.material.textfield.TextInputLayout-->
+<!--        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"-->
+<!--        app:startIconDrawable="@drawable/ic_profile"-->
+<!--        android:id="@+id/textInputLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="32dp"-->
+<!--        app:layout_constraintEnd_toEndOf="parent"-->
+<!--        app:layout_constraintStart_toStartOf="parent"-->
+<!--        app:layout_constraintTop_toTopOf="parent"-->
+<!--        android:hint="hint">-->
+
+<!--        <com.google.android.material.textfield.TextInputEditText-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+            />
+<!--    </com.google.android.material.textfield.TextInputLayout>-->
+
     <EditText
         android:id="@+id/et_email_sign_in"
         android:layout_width="236dp"
@@ -35,7 +53,7 @@
         app:layout_constraintHorizontal_bias="0.459"
         app:layout_constraintStart_toEndOf="@+id/tv_email"
         app:layout_constraintTop_toTopOf="parent"
-        tools:ignore="Autofill" />
+        tools:ignore="MissingClass" />
 
     <TextView
         android:id="@+id/tv_email"
@@ -71,7 +89,7 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="40dp"
         android:hint="@string/enter_your_password"
-        android:inputType="numberPassword"
+        android:inputType="textPassword"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -95,10 +113,10 @@
 
     <CheckBox
         android:id="@+id/check_box"
-        android:checked="false"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="192dp"
+        android:checked="false"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.336"

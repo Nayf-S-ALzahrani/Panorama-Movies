@@ -16,6 +16,7 @@ private const val TAG = "GetRecentMoviesUseCase"
 class GetRecentMoviesUseCase @Inject constructor(
     private val recentAndSeriesRepository: MovieAndSeriesRepository
 ) {
+
     operator fun invoke(): Flow<Resource<List<ItemRecent>>> = flow {
         try {
             emit(Resource.Loading())

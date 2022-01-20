@@ -1,21 +1,26 @@
 package com.example.myproject.presentation
 
 import android.os.Bundle
+import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
+import coil.load
 import com.example.myproject.R
 import com.example.myproject.databinding.ActivityMainBinding
 import com.example.myproject.presentation.ui.IOnBackPressed
 import com.google.android.material.navigation.NavigationView
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -26,7 +31,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var navigationView: NavigationView
     lateinit var binding: ActivityMainBinding
-    private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -36,6 +40,8 @@ class MainActivity : AppCompatActivity() {
         connectView()
         setupDrawer()
         drawerClicks()
+//        updateHeaderEmail()
+//        updateHeaderUsername()
 
         navController = findNavController(R.id.nav_host_fragment)
         appBarConfiguration = AppBarConfiguration(navController.graph, drawerLayout)
@@ -91,6 +97,47 @@ class MainActivity : AppCompatActivity() {
             }
         }
     }
+}
+
+//    private fun updateHeaderEmail() {
+//        val header = navigationView.getHeaderView(0)
+//        val textViewEmail = header.findViewById<TextView>(R.id.email)
+//        auth = FirebaseAuth.getInstance()
+//        textViewEmail.text = auth.currentUser?.email
+//    }
+
+//    private fun updateHeaderUsername() {
+//        val header = navigationView.getHeaderView(0)
+//        val textViewUsername = header.findViewById<TextView>(R.id.userName)
+//        auth = FirebaseAuth.getInstance()
+//        textViewUsername.text = auth.currentUser?.displayName
+//
+//        val d = FirebaseFirestore.getInstance()
+//        d.collection("persons").document(userId!!)
+//            .get().addOnCompleteListener {
+//                if (it.result?.exists()!!) {
+//
+//
+//                    val nickname = it.result!!.getString("nickname")
+//                    val firstName = it.result!!.getString("firstName")
+//                    val lastName = it.result!!.getString("lastName")
+//                    val age = it.result!!.get("age")
+//                    val image = it.result!!.getString("imageProfile")
+//
+//                    if (nickname != null && firstName != null && lastName != null && age != null) {
+//                        textViewUsername.text = nickname
+////                        binding.ageTextview.text = age.toString()
+////                        binding.nicknameTv.text = nickname
+////                        binding.lastnameTextview.text = lastName
+////                        binding.imag.load(image)
+//                    }
+
+//    private fun updateHeaderImage(){
+//        val header = navigationView.getHeaderView(0)
+//        val textViewImage = header.findViewById<TextView>(R.id.image_profile)
+//        auth = FirebaseAuth.getInstance()
+//        textViewImage.text = auth.currentUse
+//    }
 
 //    override fun onBackPressed() {
 //        val fragment =
@@ -100,5 +147,4 @@ class MainActivity : AppCompatActivity() {
 //            super.onBackPressed()
 //        }
 //    }
-}
 

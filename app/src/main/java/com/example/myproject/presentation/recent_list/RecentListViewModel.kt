@@ -5,7 +5,7 @@ import androidx.lifecycle.*
 import com.example.myproject.common.Constants
 import com.example.myproject.common.Resource
 import com.example.myproject.domain.use_case.get_recent.GetRecentMoviesUseCase
-import com.example.myproject.presentation.top250_list.Top250Value
+import com.example.myproject.presentation.ui.authentication.Person
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import javax.inject.Inject
@@ -23,6 +23,8 @@ class RecentListViewModel @Inject constructor(
     val state: LiveData<RecentValue> = _state
 
     var position = 0
+
+    val person = Person()
 
     init {
         getRecent()

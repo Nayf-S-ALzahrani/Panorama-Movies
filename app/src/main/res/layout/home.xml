@@ -79,10 +79,6 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="horizontal">
-                    <include layout="@layout/coming_soon_shrimmer_recyclerview" />
-                    <include layout="@layout/coming_soon_shrimmer_recyclerview" />
-                    <include layout="@layout/coming_soon_shrimmer_recyclerview" />
-                    <include layout="@layout/coming_soon_shrimmer_recyclerview" />
 
                 </LinearLayout>
             </com.facebook.shimmer.ShimmerFrameLayout>

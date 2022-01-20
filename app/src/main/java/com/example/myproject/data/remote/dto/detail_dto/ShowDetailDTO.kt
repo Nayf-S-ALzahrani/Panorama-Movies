@@ -58,7 +58,7 @@ data class ShowDetailDTO(
 fun ShowDetailDTO.toShowDetail(): ShowDetail {
     return ShowDetail(
         starList = starList,
-        actorList = actorList?.map { it.image },
+        actorList = actorList,
         awards = awards,
         age = contentRating,
         directors = directors,
@@ -72,7 +72,7 @@ fun ShowDetailDTO.toShowDetail(): ShowDetail {
         plot = plot,
         posters = posters,
         time = runtimeStr,
-        similars = similars,
+        similars = similars.map { it.image },
         stars = stars,
         tagline = tagline,
         title = title,

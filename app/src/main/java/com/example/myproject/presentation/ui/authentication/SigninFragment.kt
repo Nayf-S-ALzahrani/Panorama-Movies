@@ -1,10 +1,6 @@
 package com.example.myproject.presentation.ui.authentication
 
-import android.annotation.SuppressLint
-import android.app.ActionBar
-import android.app.Activity
 import android.content.Context
-import android.content.Context.INPUT_METHOD_SERVICE
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -14,7 +10,6 @@ import android.view.ViewGroup
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.content.ContextCompat.getSystemService
 import androidx.navigation.fragment.findNavController
 import com.example.myproject.R
 import com.example.myproject.databinding.SigninFragmentBinding
@@ -26,7 +21,6 @@ import kotlinx.coroutines.withContext
 import java.lang.Exception
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
-
 
 private const val TAG = "SigninFragment"
 
@@ -55,7 +49,7 @@ class SignInFragment : Fragment() {
         val sharedPreferences: SharedPreferences =
             PreferenceManager.getDefaultSharedPreferences(context)
         val email = sharedPreferences.getString("Email", "")
-        val password = sharedPreferences.getInt("Password", 0)
+        val password = sharedPreferences.getString("Password", "")
         binding.etEmailSignIn.setText(email)
         binding.etPasswordSignIn.setText(password.toString())
 
@@ -65,10 +59,8 @@ class SignInFragment : Fragment() {
 
         binding.buttonSignIn.setOnClickListener {
             loginUser()
-            if (binding.checkBox.isChecked) {
-                saveInSharedPreferences()
-            }
         }
+
     }
 
     override fun onResume() {
@@ -77,7 +69,7 @@ class SignInFragment : Fragment() {
     }
 
     override fun onStop() {
-        super.onStop();
+        super.onStop()
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
     }
 
@@ -86,9 +78,10 @@ class SignInFragment : Fragment() {
             PreferenceManager.getDefaultSharedPreferences(context)
         val editor = sharedPreferences.edit()
         editor.putString("Email", binding.etEmailSignIn.text.toString())
-        editor.putInt("Password", binding.etPasswordSignIn.text.toString().toInt())
+        editor.putString("Password", binding.etPasswordSignIn.text.toString())
         editor.apply()
-        Toast.makeText(context, getString(R.string.remember_me_toast), Toast.LENGTH_SHORT).show()
+        Toast.makeText(context, getString(R.string.remember_me_toast), Toast.LENGTH_SHORT)
+            .show()
     }
 
     fun loginUser() {
@@ -111,8 +104,19 @@ class SignInFragment : Fragment() {
                                 binding.buttonSignIn.isEnabled = false
                                 binding.buttonSignIn.alpha = 0.5f
                                 hideKeyboard()
-                                Toast.makeText(context, getString(R.string.welcome_toast), Toast.LENGTH_LONG).show()
+
+                                Toast.makeText(
+                                    context,
+                                    getString(R.string.welcome_toast),
+                                    Toast.LENGTH_LONG
+                                ).show()
+
+                                if (binding.checkBox.isChecked) {
+                                    saveInSharedPreferences()
+                                }
+
                                 findNavController().navigate(R.id.homeFragment)
+
                             } else {
                                 hideKeyboard()
                                 Toast.makeText(
@@ -134,7 +138,8 @@ class SignInFragment : Fragment() {
 
     private fun checkLoggedState() {
         if (auth.currentUser == null) {
-            Toast.makeText(context, getString(R.string.not_login_toast), Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.not_login_toast), Toast.LENGTH_SHORT)
+                .show()
         } else {
             Toast.makeText(context, getString(R.string.login_toast), Toast.LENGTH_SHORT).show()
         }

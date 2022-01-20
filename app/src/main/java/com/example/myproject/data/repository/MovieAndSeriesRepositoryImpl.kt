@@ -1,5 +1,6 @@
 package com.example.myproject.data.repository
 
+import com.example.myproject.common.Constants
 import com.example.myproject.data.remote.ImdbApi
 import com.example.myproject.data.remote.dto.coming_soon_dto.ComingSoonDTO
 import com.example.myproject.data.remote.dto.popular_dto.MostPopularMoviesDTO
@@ -9,6 +10,8 @@ import com.example.myproject.data.remote.dto.top250_dto.Top250MoviesDTO
 import com.example.myproject.data.remote.dto.top250_tvs_dto.Top250TVsDTO
 import com.example.myproject.domain.repository.MovieAndSeriesRepository
 import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 import javax.inject.Inject
 
 

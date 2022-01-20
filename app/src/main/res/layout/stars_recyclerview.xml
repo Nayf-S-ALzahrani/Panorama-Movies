@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="match_parent">
 
@@ -18,5 +19,34 @@
         app:shapeAppearanceOverlay="@style/roundedCorner1"
         app:strokeColor="#120C0C0C"
         app:strokeWidth="5dp" />
+
+    <ImageView
+        android:id="@+id/background"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="1dp"
+        android:layout_marginEnd="1dp"
+        android:alpha="0.7"
+        android:src="@drawable/background_star_name"
+        app:layout_constraintBottom_toBottomOf="@+id/stars_main_rv"
+        app:layout_constraintEnd_toEndOf="@+id/stars_main_rv"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/stars_main_rv"
+        tools:ignore="ContentDescription" />
+
+    <TextView
+        android:id="@+id/star_name"
+        android:layout_width="109dp"
+        android:layout_height="15dp"
+        android:layout_marginBottom="5dp"
+        android:fontFamily="@font/playfair_display"
+        android:gravity="center"
+        android:textColor="@color/white"
+        android:textSize="11sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@id/background"
+        app:layout_constraintEnd_toEndOf="@id/background"
+        app:layout_constraintStart_toStartOf="@id/background" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -6,11 +6,8 @@ import com.example.myproject.common.Constants
 import com.example.myproject.common.Resource
 import com.example.myproject.domain.use_case.get_detail.GeDetailUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
-import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 private const val TAG = "ShowDetailViewModel"
@@ -31,24 +28,22 @@ class ShowDetailViewModel @Inject constructor(
     }
 
     private fun getDetail(showId: String) {
-        viewModelScope.launch{
-            getDetailUseCase(showId).collectLatest { result ->
-                when (result) {
-                    is Resource.Success -> {
-                        _state.value = DetailValue(show = result.data)
-                        Log.d(TAG, " Detail101: ${result.data}")
-                    }
-                    is Resource.Error -> {
-                        _state.value =
-                            DetailValue(error = result.message ?: "An unexpected error occurred")
-                        Log.d(TAG, "Show detail viewModel: ${result.message}")
-                    }
-                    is Resource.Loading -> {
-                        _state.value = DetailValue(isLoading = true)
-                    }
+        getDetailUseCase(showId).onEach { result ->
+            when (result) {
+                is Resource.Success -> {
+                    _state.value = DetailValue(show = result.data)
+                    Log.d(TAG, " Detail101: ${result.data}")
+                }
+                is Resource.Error -> {
+                    _state.value =
+                        DetailValue(error = result.message ?: "An unexpected error occurred")
+                    Log.d(TAG, "Show detail viewModel: ${result.message}")
+                }
+                is Resource.Loading -> {
+                    _state.value = DetailValue(isLoading = true)
                 }
             }
-        }
-            //.launchIn(viewModelScope)
+        }.launchIn(viewModelScope)
     }
 }
+

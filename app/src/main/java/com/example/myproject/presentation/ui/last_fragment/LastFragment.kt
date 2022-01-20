@@ -6,17 +6,19 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.core.view.get
+import androidx.core.os.bundleOf
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
+import com.example.myproject.R
+import com.example.myproject.data.remote.dto.detail_dto.Actor
 import com.example.myproject.databinding.LastFragmentBinding
+import com.example.myproject.databinding.SimilarsRecyclerviewBinding
 import com.example.myproject.databinding.StarsRecyclerviewBinding
 import com.example.myproject.presentation.show_detail.ShowDetailViewModel
-import com.facebook.shimmer.ShimmerFrameLayout
 import com.google.android.material.snackbar.Snackbar
-import com.squareup.picasso.Picasso
 import dagger.hilt.android.AndroidEntryPoint
 
 private const val TAG = "LastFragment"
@@ -38,6 +40,11 @@ class LastFragment : Fragment() {
             LinearLayoutManager.HORIZONTAL,
             false
         )
+        binding.similarRecyclerView.layoutManager = LinearLayoutManager(
+            context,
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
         return binding.root
     }
 
@@ -47,7 +54,12 @@ class LastFragment : Fragment() {
         lastViewModel.state.observe(viewLifecycleOwner) {
             when {
                 it.show?.id?.isNotEmpty() == true -> {
-                    binding.starRecyclerView.adapter = ShowDetailAdapter(it.show.actorList)
+                    binding.starRecyclerView.adapter = it.show.actorList?.let { it ->
+                        ShowDetailAdapter(
+                            it
+                        )
+                    }
+                    binding.similarRecyclerView.adapter = SimilarAdapter(it.show.similars)
                     binding.animationView.visibility = View.INVISIBLE
                     binding.ageTv.text = it.show.age
                     binding.backgroundImageView.load(it.show.image)
@@ -84,30 +96,29 @@ class LastFragment : Fragment() {
                 }
                 it.error.isNotBlank() -> {
                     //toast error message
-                    val snackbar =
+                    val snackBar =
                         Snackbar.make(requireView(), "Error Connection", Snackbar.LENGTH_LONG)
-                    snackbar.setAction("Dismiss") { snackbar.dismiss() }
-                    snackbar.show()
+                    snackBar.setAction("Dismiss") { snackBar.dismiss() }
+                    snackBar.show()
                     Log.d(TAG, "Error: ${it.error}")
                 }
                 else -> Log.d(TAG, "Unknown error ${it.error}")
             }
         }
     }
+
     //-----------------------Actors Images Holder and adapter-------------------------//
 
     private inner class ShowDetailHolder(val binding: StarsRecyclerviewBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        fun bind(starImage: List<String>?) {
-            if (starImage != null) {
-                binding.starsMainRv.load(starImage[position])
-//                Picasso.get().load(starImage[position]).into(binding.starsMainRv)
-            }
+        fun bind(starImage: Actor) {
+            binding.starsMainRv.load(starImage.image)
+            binding.starName.text = starImage.name
             Log.d(TAG, "bind: $starImage")
         }
     }
 
-    private inner class ShowDetailAdapter(val starImages: List<String>?) :
+    private inner class ShowDetailAdapter(val starImages: List<Actor>) :
         RecyclerView.Adapter<ShowDetailHolder>() {
         override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ShowDetailHolder {
             val binding = StarsRecyclerviewBinding.inflate(
@@ -119,11 +130,48 @@ class LastFragment : Fragment() {
         }
 
         override fun onBindViewHolder(holder: ShowDetailHolder, position: Int) {
-            val star = starImages
+            val star = starImages[position]
             holder.bind(star)
+            star.image
         }
 
-        override fun getItemCount(): Int = starImages!!.size
+        override fun getItemCount(): Int = starImages.size
+    }
+
+    //-----------------------Similar Holder and adapter-------------------------//
+
+    private inner class SimilarHolder(val binding: SimilarsRecyclerviewBinding) :
+        RecyclerView.ViewHolder(binding.root) {
+        fun bind(similar: List<String>?) {
+            if (similar != null) {
+                binding.similarRv.load(similar[layoutPosition])
+
+//                val inPosition = bundleOf("id" to id)
+//                findNavController().navigate(R.id.recentMoviesFragment, inPosition)
+                Log.d(TAG, "bind similar: $similar")
+            } else {
+                binding.similarRv.visibility = View.GONE
+            }
+        }
+    }
+
+    private inner class SimilarAdapter(val similar: List<String>?) :
+        RecyclerView.Adapter<SimilarHolder>() {
+        override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SimilarHolder {
+            val binding = SimilarsRecyclerviewBinding.inflate(
+                layoutInflater,
+                parent,
+                false
+            )
+            return SimilarHolder(binding)
+        }
+
+        override fun onBindViewHolder(holder: SimilarHolder, position: Int) {
+            val same = similar
+            holder.bind(same)
+        }
+
+        override fun getItemCount(): Int = similar!!.size
     }
 
 }

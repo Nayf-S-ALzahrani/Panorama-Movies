@@ -4,7 +4,7 @@ import com.example.myproject.data.remote.dto.detail_dto.*
 
 data class ShowDetail(
     val starList: List<Star>?,
-    val actorList: List<String>?,
+    val actorList: List<Actor>??,
     val awards: String?,
     val age: String?,
     val directors: String?,
@@ -18,7 +18,7 @@ data class ShowDetail(
     val plot: String?,
     val posters: Posters?,
     val time: String?,
-    val similars: List<Similar>?,
+    val similars: List<String>?,
     val stars: String?,
     val tagline: String?,
     val title: String?,
