@@ -13,9 +13,9 @@
     <application
         android:name=".presentation.PanoramaApplication"
         android:allowBackup="true"
-        android:icon="@drawable/icon"
+        android:icon="@drawable/popcorn"
         android:label="Panorama"
-        android:roundIcon="@drawable/icon"
+        android:roundIcon="@drawable/popcorn"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyProject"
         android:usesCleartextTraffic="true"

@@ -105,6 +105,23 @@
                 tools:text="Release State" />
 
             <TextView
+                android:id="@+id/year_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/playfair_display"
+                android:gravity="center|top"
+                android:textColor="@color/black"
+                android:textSize="19sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.498"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/title_tv"
+                tools:ignore="MissingConstraints"
+                tools:text="year" />
+
+            <TextView
                 android:id="@+id/genres_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -117,7 +134,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/title_tv"
+                app:layout_constraintTop_toBottomOf="@+id/year_tv"
                 tools:ignore="MissingConstraints"
                 tools:text="Genres" />
 
@@ -229,10 +246,40 @@
                 app:layout_constraintTop_toBottomOf="@+id/actors" />
 
             <TextView
+                android:id="@+id/trailer_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="2dp"
+                android:layout_marginTop="16dp"
+                android:fontFamily="@font/playfair_display_sc"
+                android:padding="5dp"
+                android:text="@string/trailer"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.017"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/describe_tv"
+                tools:ignore="MissingConstraints" />
+
+            <WebView
+                android:id="@+id/webView"
+                android:layout_width="390dp"
+                android:layout_height="350dp"
+                android:layout_marginTop="16dp"
+                app:layout_constraintBottom_toTopOf="@+id/similar_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/trailer_tv"
+                tools:ignore="WebViewLayout" />
+
+            <TextView
                 android:id="@+id/similar_tv"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="2dp"
+                android:layout_marginTop="16dp"
                 android:fontFamily="@font/playfair_display_sc"
                 android:padding="5dp"
                 android:text="@string/similar"
@@ -242,7 +289,7 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.014"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/describe_tv"
+                app:layout_constraintTop_toBottomOf="@+id/webView"
                 tools:ignore="MissingConstraints" />
 
             <androidx.recyclerview.widget.RecyclerView
@@ -254,17 +301,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/similar_tv" />
-
-            <com.google.android.exoplayer2.ui.PlayerView
-                android:id="@+id/playerVIew"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:animateLayoutChanges="true"
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintHorizontal_bias="0.5"
-                app:layout_constraintStart_toStartOf="parent"
-                app:resize_mode="fill" />
 
 
         </androidx.constraintlayout.widget.ConstraintLayout>

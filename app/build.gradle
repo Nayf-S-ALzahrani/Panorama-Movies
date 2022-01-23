@@ -104,13 +104,11 @@ dependencies {
 
     implementation 'com.facebook.shimmer:shimmer:0.5.0'
 
-    implementation("io.coil-kt:coil-video:1.4.0")
 
 
     def lottieVersion = "3.4.0"
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
-    implementation 'bg.devlabs:fullscreen-video-view:1.2.0'
 
     implementation 'com.google.firebase:firebase-auth:21.0.1'
 
@@ -125,7 +123,6 @@ dependencies {
     implementation 'com.google.firebase:firebase-analytics'
     implementation 'com.squareup.picasso:picasso:2.71828'
 
-    implementation 'com.google.android.exoplayer:exoplayer:2.11.6'
 
     implementation 'com.google.android.material:material:<version>'
 

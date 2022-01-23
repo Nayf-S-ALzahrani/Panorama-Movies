@@ -7,6 +7,4 @@ data class Person(
     var lastName:String="",
     var age:Int = 0,
     var imag :String = ""
-
-//    var imageProfile:String=""
 )

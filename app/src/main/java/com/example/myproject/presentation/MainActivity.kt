@@ -75,20 +75,20 @@ class MainActivity : AppCompatActivity() {
         binding.navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.profileFragment -> {
-                    Toast.makeText(this, "Your profile", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.your_profile), Toast.LENGTH_SHORT).show()
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
 
                 R.id.signInFragment -> {
                     Firebase.auth.signOut()
-                    Toast.makeText(this, "signin", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.toenter), Toast.LENGTH_SHORT).show()
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
 
                 R.id.homeFragment -> {
-                    Toast.makeText(this, "Home", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.start), Toast.LENGTH_SHORT).show()
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }

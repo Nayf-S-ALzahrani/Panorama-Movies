@@ -42,7 +42,6 @@ class RegisterFragment : Fragment(), IOnBackPressed {
         }
     }
 
-
     private fun registerUser() {
         val email = binding.edittextEmailLogin.text.toString()
         val password = binding.edittextPasswordLogin.text.toString()
@@ -50,13 +49,13 @@ class RegisterFragment : Fragment(), IOnBackPressed {
         when {
             (email.isEmpty() || password.isEmpty() || confirmPassword.isEmpty()) -> Toast.makeText(
                 context,
-                "you must fill all fields",
+                getString(R.string.fill_field),
                 Toast.LENGTH_LONG
             ).show()
 
             password != confirmPassword -> Toast.makeText(
                 context,
-                "the password didn't mache!",
+                getString(R.string.password_match),
                 Toast.LENGTH_SHORT
             ).show()
 
@@ -65,7 +64,7 @@ class RegisterFragment : Fragment(), IOnBackPressed {
                     auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener { task ->
                             if (task.isSuccessful) {
-                                Toast.makeText(context, "Register successful", Toast.LENGTH_LONG)
+                                Toast.makeText(context, getString(R.string.register_r), Toast.LENGTH_LONG)
                                     .show()
                                 binding.buttonLogin.isEnabled = false
                                 binding.buttonLogin.alpha = 0.5f

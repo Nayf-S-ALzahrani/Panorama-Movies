@@ -28,7 +28,6 @@ private const val TAG = "ComingSoonMoviesFragment"
 
 @AndroidEntryPoint
 class ComingSoonMoviesFragment : Fragment() {
-    // var position: Int? = null
 
     private val comingSoonViewModel by viewModels<ComingSoonListViewModel>()
     private lateinit var binding: ComingSoonMoviesFragmentBinding
@@ -69,8 +68,8 @@ class ComingSoonMoviesFragment : Fragment() {
                 else -> {
                     //toast error message
                     val snackbar =
-                        Snackbar.make(requireView(), "Error Connection", Snackbar.LENGTH_LONG)
-                    snackbar.setAction("Dismiss") { snackbar.dismiss() }
+                        Snackbar.make(requireView(), getString(R.string.error_conection), Snackbar.LENGTH_LONG)
+                    snackbar.setAction(getString(R.string.dismiss)) { snackbar.dismiss() }
                     snackbar.show()
                     Log.d(TAG, "Error: ${state?.error}")
                 }
@@ -80,21 +79,16 @@ class ComingSoonMoviesFragment : Fragment() {
 
     override fun onStop() {
         super.onStop()
-        // save position before transl
         comingSoonViewModel.position = binding.comingSoonMoviesRv.getChildAdapterPosition(binding.comingSoonMoviesRv.focusedChild)
     }
 
     private inner class ComingSoonHolder(val binding: ComingSoonListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
-        //        ,View.OnClickListener {
-//        lateinit var comingSoon: ItemComingSoon
 
         fun bind(comingSoon: ItemComingSoon) {
-//            this.comingSoon = comingSoon
             binding.titleTv.text = comingSoon.title
             binding.posterIv.load(comingSoon.image)
             Log.d(TAG, "bind: ${comingSoon.image}")
-//            binding.backgroundImageView.load(comingSoon.image)
             binding.genresTv.text = comingSoon.genres
             binding.releaseStateTv.text = comingSoon.showTime
             binding.posterIv.setOnClickListener {

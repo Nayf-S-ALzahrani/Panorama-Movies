@@ -117,7 +117,7 @@ class ProfileFragment : Fragment() {
                 (nickname.isEmpty()) -> {
                     Toast.makeText(
                         context,
-                        "Enter nick name",
+                        getString(R.string.enter_nickname),
                         Toast.LENGTH_SHORT
 
                     ).show()
@@ -131,7 +131,7 @@ class ProfileFragment : Fragment() {
                         .update("nickname", nickname)
                     getUserInfo(userId)
                     hideKeyboard()
-                    Toast.makeText(context, "Successful update", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, getString(R.string.succes), Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -160,7 +160,7 @@ class ProfileFragment : Fragment() {
                         .update("firstName", firstname)
                     getUserInfo(userId)
                     hideKeyboard()
-                    Toast.makeText(context, "Successful update", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, getString(R.string.succes), Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -179,7 +179,7 @@ class ProfileFragment : Fragment() {
             when {
                 (lastname.isEmpty()) -> Toast.makeText(
                     context,
-                    "Enter last name",
+                    getString(R.string.enter_lastname),
                     Toast.LENGTH_SHORT
                 ).show()
                 (lastname.isNotEmpty()) -> {
@@ -189,7 +189,7 @@ class ProfileFragment : Fragment() {
                         .update("lastName", lastname)
                     getUserInfo(userId)
                     hideKeyboard()
-                    Toast.makeText(context, "Successful update", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, getString(R.string.succes), Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -218,7 +218,7 @@ class ProfileFragment : Fragment() {
                         .update("age", age)
                     getUserInfo(userId)
                     hideKeyboard()
-                    Toast.makeText(context, "Successful update", Toast.LENGTH_SHORT)
+                    Toast.makeText(context, R.string.succes, Toast.LENGTH_SHORT)
                         .show()
                 }
             }
@@ -306,7 +306,7 @@ class ProfileFragment : Fragment() {
                     Log.d(TAG, "saveImage: download uri")
                     val ref = userId?.let { dataBase.collection("persons").document(it) }
                     ref?.update("imageProfile", task.result.toString())
-                    Toast.makeText(context, "Image saved", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(context, getString(R.string.image_save), Toast.LENGTH_SHORT).show()
                     Log.d(TAG, "saveImage: connect with user")
                 }
             }
@@ -316,7 +316,7 @@ class ProfileFragment : Fragment() {
     private fun savePerson(person: Person) = CoroutineScope(Dispatchers.IO).launch {
         try {
             personaCollectionRef?.set(person)?.await()
-            Toast.makeText(context, "Successfully saved data", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.saved_data), Toast.LENGTH_SHORT).show()
         } catch (e: Exception) {
             withContext(Dispatchers.Main) {
                 Toast.makeText(context, "${e.message}", Toast.LENGTH_SHORT).show()
@@ -329,7 +329,7 @@ class ProfileFragment : Fragment() {
             Firebase.auth.currentUser?.delete()?.addOnCompleteListener { task ->
                 when {
                     task.isSuccessful -> {
-                        Toast.makeText(context, "Your account deleted", Toast.LENGTH_SHORT)
+                        Toast.makeText(context, getString(R.string.deleteuser), Toast.LENGTH_SHORT)
                             .show()
                         FirebaseFirestore.getInstance().collection("persons").document(userId!!)
                             .delete()
@@ -337,7 +337,7 @@ class ProfileFragment : Fragment() {
                         navController.navigate(R.id.registerFragment)
                     }
                     task.isCanceled -> {
-                        Toast.makeText(context, "Complete", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(context, getString(R.string.Complete), Toast.LENGTH_SHORT).show()
                     }
                     else ->
                         Toast.makeText(context, "$userId", Toast.LENGTH_SHORT).show()
@@ -361,7 +361,7 @@ class ProfileFragment : Fragment() {
 //            Toast.makeText(context, "You are not login!", Toast.LENGTH_SHORT).show()
         } else {
 //            binding.textView3.text = user
-            Toast.makeText(context, "You are logged in", Toast.LENGTH_SHORT).show()
+            Toast.makeText(context, getString(R.string.login_toast), Toast.LENGTH_SHORT).show()
         }
     }
 

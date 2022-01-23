@@ -58,5 +58,23 @@
     <string name="registration">Registro</string>
     <string name="Signin">Iniciar sesión</string>
     <string name="profile_personal">perfil personal</string>
+    <string name="enter_nick_name">Introduce el apodo</string>
+    <string name="succes">Actualización exitosa</string>
+    <string name="enter_last_name1">Introduzca el apellido</string>
+    <string name="enter_nickname">Ingresa tu alias</string>
+    <string name="enter_lastname">Ingresa tu apellido</string>
+    <string name="image_save">Imagen guardada</string>
+    <string name="saved_data">Datos guardados correctamente</string>
+    <string name="deleteuser">Tu cuenta eliminada</string>
+    <string name="Complete">acciones completadas</string>
+    <string name="fill_field">debes llenar todos los campos</string>
+    <string name="password_match">la contraseña no mache!</string>
+    <string name="register_r">Registro exitoso</string>
+    <string name="your_profile">Tu perfil</string>
+    <string name="toenter">iniciar sesión</string>
+    <string name="start">pantalla de inicio</string>
+    <string name="error_conection">Error de conexión</string>
+    <string name="dismiss">Despedir</string>
+    <string name="trailer">Trailer de la película</string>
 
 </resources>

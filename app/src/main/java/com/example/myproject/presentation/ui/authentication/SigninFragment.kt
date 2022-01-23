@@ -22,7 +22,7 @@ import java.lang.Exception
 import android.content.SharedPreferences
 import androidx.preference.PreferenceManager
 
-private const val TAG = "SigninFragment"
+private const val TAG = "SignInFragment"
 
 class SignInFragment : Fragment() {
     private lateinit var binding: SigninFragmentBinding
@@ -73,7 +73,7 @@ class SignInFragment : Fragment() {
         (requireActivity() as AppCompatActivity).supportActionBar?.show()
     }
 
-    fun saveInSharedPreferences() {
+    private fun saveInSharedPreferences() {
         val sharedPreferences: SharedPreferences =
             PreferenceManager.getDefaultSharedPreferences(context)
         val editor = sharedPreferences.edit()
@@ -88,7 +88,7 @@ class SignInFragment : Fragment() {
         (name.isNullOrBlank() || name.length > 25 ).not()
 
 
-    fun loginUser() {
+    private fun loginUser() {
         val email = binding.etEmailSignIn.text.toString()
         val password = binding.etPasswordSignIn.text.toString()
 
@@ -149,7 +149,7 @@ class SignInFragment : Fragment() {
         }
     }
 
-    fun SignInFragment.hideKeyboard() {
+    private fun SignInFragment.hideKeyboard() {
         val inputManager =
             context?.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
         inputManager.hideSoftInputFromWindow(view?.windowToken, 0)

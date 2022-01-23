@@ -58,5 +58,23 @@
     <string name="registration">Registration</string>
     <string name="Signin">Signin</string>
     <string name="profile_personal">Profile personal</string>
+    <string name="enter_nick_name">Enter nick name</string>
+    <string name="succes">Successful update</string>
+    <string name="enter_last_name1">Enter last name</string>
+    <string name="enter_nickname">Enter your nickname</string>
+    <string name="enter_lastname">Enter your lastname</string>
+    <string name="image_save">Image saved</string>
+    <string name="saved_data">Successfully saved data</string>
+    <string name="deleteuser">Your account deleted</string>
+    <string name="Complete">Complete</string>
+    <string name="fill_field">you must fill all fields</string>
+    <string name="password_match">the password didn\'t mache!</string>
+    <string name="register_r">Register successful</string>
+    <string name="your_profile">Your profile</string>
+    <string name="toenter">signin</string>
+    <string name="start">Home</string>
+    <string name="error_conection">Error Connection</string>
+    <string name="dismiss">Dismiss</string>
+    <string name="trailer">Trailer:</string>
 
 </resources>
