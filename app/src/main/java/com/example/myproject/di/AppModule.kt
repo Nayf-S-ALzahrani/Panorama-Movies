@@ -1,5 +1,7 @@
 package com.example.myproject.di
 
+import android.app.Application
+import android.content.Context
 import com.example.myproject.common.Constants
 import com.example.myproject.data.remote.ImdbApi
 import com.example.myproject.data.repository.MovieAndSeriesRepositoryImpl
@@ -41,5 +43,7 @@ object AppModule {
     fun provideFirebaseAuth(): FirebaseAuth {
         return FirebaseAuth.getInstance()
     }
+
+
 
 }

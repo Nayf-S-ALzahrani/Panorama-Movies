@@ -9,14 +9,13 @@ import android.widget.Toast
 import androidx.navigation.fragment.findNavController
 import com.example.myproject.R
 import com.example.myproject.databinding.RegisterFragmentBinding
-import com.example.myproject.presentation.ui.IOnBackPressed
 import com.google.firebase.auth.FirebaseAuth
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.*
 import java.lang.Exception
 
 @AndroidEntryPoint
-class RegisterFragment : Fragment(), IOnBackPressed {
+class RegisterFragment : Fragment() {
     private lateinit var binding: RegisterFragmentBinding
     private lateinit var auth: FirebaseAuth
 
@@ -87,7 +86,4 @@ class RegisterFragment : Fragment(), IOnBackPressed {
         }
     }
 
-    override fun onBackPressed(): Boolean {
-        return true
-    }
 }

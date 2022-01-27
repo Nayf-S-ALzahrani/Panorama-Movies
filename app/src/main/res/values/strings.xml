@@ -40,7 +40,7 @@
     <string name="delete">Delete</string>
     <string name="remember_me">Remember me</string>
     <string name="remember_me_toast">Will remember you</string>
-    <string name="login_fill_toast">You must fill all fields</string>
+    <string name="login_empty_email_toast">You must fill email field</string>
     <string name="welcome_toast">Welcome</string>
     <string name="not_login_toast">You are not login!</string>
     <string name="login_toast">You are logged in</string>
@@ -76,5 +76,6 @@
     <string name="error_conection">Error Connection</string>
     <string name="dismiss">Dismiss</string>
     <string name="trailer">Trailer:</string>
+    <string name="login_empty_password">You must fill password field</string>
 
 </resources>

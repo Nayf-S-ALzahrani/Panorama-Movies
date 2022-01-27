@@ -84,8 +84,8 @@ class SignInFragment : Fragment() {
             .show()
     }
 
-    fun isNameFormat(name:String?) =
-        (name.isNullOrBlank() || name.length > 25 ).not()
+    fun isNameFormat(name: String?) =
+        (name.isNullOrBlank() || name.length > 25).not()
 
 
     private fun loginUser() {
@@ -93,10 +93,16 @@ class SignInFragment : Fragment() {
         val password = binding.etPasswordSignIn.text.toString()
 
         when {
-            (email.isEmpty() || password.isEmpty()) -> Toast.makeText(
+            email.isEmpty() -> Toast.makeText(
                 context,
-                getString(R.string.login_fill_toast),
+                getString(R.string.login_empty_email_toast),
                 Toast.LENGTH_LONG
+            ).show()
+
+            password.isEmpty() -> Toast.makeText(
+                context,
+                getString(R.string.login_empty_password),
+                Toast.LENGTH_SHORT
             ).show()
 
             (email.isNotEmpty() && password.isNotEmpty()) -> CoroutineScope(Dispatchers.IO).launch {

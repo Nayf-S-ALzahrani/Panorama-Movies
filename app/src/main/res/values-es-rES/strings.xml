@@ -40,7 +40,6 @@
     <string name="delete">Borrar</string>
     <string name="remember_me">Remember me</string>
     <string name="remember_me_toast">Recuérdame</string>
-    <string name="login_fill_toast">Debes llenar todos los campos</string>
     <string name="welcome_toast">Hola</string>
     <string name="not_login_toast">no estas registrado!</string>
     <string name="login_toast">Estás conectado</string>
@@ -76,5 +75,7 @@
     <string name="error_conection">Error de conexión</string>
     <string name="dismiss">Despedir</string>
     <string name="trailer">Trailer de la película</string>
+    <string name="login_empty_password">Debes llenar el campo de contraseña</string>
+    <string name="login_empty_email_toast">Debes llenar el campo de correo electrónico</string>
 
 </resources>

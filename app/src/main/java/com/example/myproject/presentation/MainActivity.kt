@@ -1,26 +1,21 @@
 package com.example.myproject.presentation
 
 import android.os.Bundle
-import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.ActionBarDrawerToggle
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.app.AppCompatDelegate
 import androidx.core.view.GravityCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.navigation.NavController
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import coil.load
 import com.example.myproject.R
 import com.example.myproject.databinding.ActivityMainBinding
-import com.example.myproject.presentation.ui.IOnBackPressed
+import com.example.myproject.presentation.ui.authentication.RegisterFragment
+import com.example.myproject.presentation.ui.authentication.SignInFragment
 import com.google.android.material.navigation.NavigationView
-import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
 import dagger.hilt.android.AndroidEntryPoint
 
@@ -49,6 +44,26 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupWithNavController(binding.navigationView, navController)
     }
 
+    override fun onBackPressed() {
+        val navHost = supportFragmentManager.findFragmentById(R.id.my_nav)
+        navHost?.let { navFragment ->
+            navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
+                if (fragment is SignInFragment) {
+                    finish()
+                } else {
+                    super.onBackPressed()
+                }
+            }
+            navFragment.childFragmentManager.primaryNavigationFragment?.let { fragment ->
+                if (fragment is RegisterFragment) {
+                    finish()
+                } else {
+                    super.onBackPressed()
+                }
+            }
+        }
+    }
+
     private fun setupDrawer() {
         val toggleDrawer =
             ActionBarDrawerToggle(this, drawerLayout, R.string.app_name, R.string.app_name)
@@ -75,7 +90,8 @@ class MainActivity : AppCompatActivity() {
         binding.navigationView.setNavigationItemSelectedListener {
             when (it.itemId) {
                 R.id.profileFragment -> {
-                    Toast.makeText(this, getString(R.string.your_profile), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, getString(R.string.your_profile), Toast.LENGTH_SHORT)
+                        .show()
                     binding.drawerLayout.closeDrawer(GravityCompat.START)
                     true
                 }
